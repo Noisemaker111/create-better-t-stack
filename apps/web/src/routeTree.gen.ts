@@ -21,6 +21,8 @@ import { Route as ServicesLeafGuardsRouteImport } from './routes/services/leaf-g
 import { Route as ServicesInstallationRouteImport } from './routes/services/installation'
 import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
 import { Route as ServiceAreasCityRouteImport } from './routes/service-areas/$city'
+import { Route as AdminSectionRouteImport } from './routes/admin/section'
+import { Route as AdminGalleryRouteImport } from './routes/admin/gallery'
 
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
@@ -82,12 +84,24 @@ const ServiceAreasCityRoute = ServiceAreasCityRouteImport.update({
   path: '/service-areas/$city',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminSectionRoute = AdminSectionRouteImport.update({
+  id: '/admin/section',
+  path: '/admin/section',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminGalleryRoute = AdminGalleryRouteImport.update({
+  id: '/admin/gallery',
+  path: '/admin/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/section': typeof AdminSectionRoute
   '/service-areas/$city': typeof ServiceAreasCityRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/installation': typeof ServicesInstallationRoute
@@ -102,6 +116,8 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/section': typeof AdminSectionRoute
   '/service-areas/$city': typeof ServiceAreasCityRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/installation': typeof ServicesInstallationRoute
@@ -117,6 +133,8 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/admin/gallery': typeof AdminGalleryRoute
+  '/admin/section': typeof AdminSectionRoute
   '/service-areas/$city': typeof ServiceAreasCityRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/installation': typeof ServicesInstallationRoute
@@ -133,6 +151,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/admin/gallery'
+    | '/admin/section'
     | '/service-areas/$city'
     | '/services/commercial'
     | '/services/installation'
@@ -147,6 +167,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/admin/gallery'
+    | '/admin/section'
     | '/service-areas/$city'
     | '/services/commercial'
     | '/services/installation'
@@ -161,6 +183,8 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/admin/gallery'
+    | '/admin/section'
     | '/service-areas/$city'
     | '/services/commercial'
     | '/services/installation'
@@ -176,6 +200,8 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
+  AdminGalleryRoute: typeof AdminGalleryRoute
+  AdminSectionRoute: typeof AdminSectionRoute
   ServiceAreasCityRoute: typeof ServiceAreasCityRoute
   ServicesCommercialRoute: typeof ServicesCommercialRoute
   ServicesInstallationRoute: typeof ServicesInstallationRoute
@@ -272,6 +298,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceAreasCityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/section': {
+      id: '/admin/section'
+      path: '/admin/section'
+      fullPath: '/admin/section'
+      preLoaderRoute: typeof AdminSectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/gallery': {
+      id: '/admin/gallery'
+      path: '/admin/gallery'
+      fullPath: '/admin/gallery'
+      preLoaderRoute: typeof AdminGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -280,6 +320,8 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
+  AdminGalleryRoute: AdminGalleryRoute,
+  AdminSectionRoute: AdminSectionRoute,
   ServiceAreasCityRoute: ServiceAreasCityRoute,
   ServicesCommercialRoute: ServicesCommercialRoute,
   ServicesInstallationRoute: ServicesInstallationRoute,

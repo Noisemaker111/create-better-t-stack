@@ -127,9 +127,9 @@ function AboutPage() {
             <div className="relative">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-200">
                 <img
-                  alt="BTG Gutters - Father & Son Team"
+                  alt="BTG Gutters - Professional Gutter Installation"
                   className="h-full w-full object-cover"
-                  src="/images/logo.png"
+                  src="/images/gallery/002.jpg"
                 />
               </div>
 

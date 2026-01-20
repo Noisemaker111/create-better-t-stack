@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
   Building2,
@@ -9,9 +10,21 @@ import {
   Wrench,
 } from "lucide-react";
 import { trackCTAClick, trackPhoneClick } from "@/lib/analytics";
+import { useSectionImageStyle } from "@/lib/section-config";
 
-const services = [
+interface ServiceItem {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  features: string[];
+  href: string;
+  color: string;
+}
+
+const services: ServiceItem[] = [
   {
+    id: "services-installation",
     icon: Droplets,
     title: "Gutter Installation",
     description:
@@ -23,9 +36,9 @@ const services = [
     ],
     href: "/services/installation",
     color: "from-green-500 to-[#1eeb00]",
-    image: "/images/gallery/001.jpg",
   },
   {
+    id: "services-guards",
     icon: Leaf,
     title: "Leaf & Gutter Guards",
     description:
@@ -37,9 +50,9 @@ const services = [
     ],
     href: "/services/leaf-guards",
     color: "from-emerald-500 to-green-600",
-    image: "/images/gallery/048.jpg",
   },
   {
+    id: "services-repair",
     icon: Wrench,
     title: "Gutter Repair & Tune-Up",
     description:
@@ -47,9 +60,9 @@ const services = [
     features: ["Leak sealing", "Pitch realignment", "Section replacement"],
     href: "/services/repair",
     color: "from-blue-500 to-blue-600",
-    image: "/images/gallery/005.jpg",
   },
   {
+    id: "services-soffit",
     icon: Home,
     title: "Soffit & Fascia Repairs",
     description:
@@ -61,9 +74,9 @@ const services = [
     ],
     href: "/services/soffit-fascia",
     color: "from-amber-500 to-orange-600",
-    image: "/images/gallery/032.jpg",
   },
   {
+    id: "services-commercial",
     icon: Building2,
     title: "Commercial Gutters",
     description:
@@ -71,9 +84,9 @@ const services = [
     features: ["Box gutters", "Heavy-duty steel/aluminum", "Large downspouts"],
     href: "/services/commercial",
     color: "from-slate-700 to-slate-900",
-    image: "/images/gallery/072.jpg",
   },
   {
+    id: "services-cleaning",
     icon: Sparkles,
     title: "Professional Cleaning",
     description:
@@ -85,11 +98,14 @@ const services = [
     ],
     href: "/services/cleaning",
     color: "from-cyan-500 to-blue-500",
-    image: "/images/gallery/003.jpg",
   },
 ];
 
 export default function ServicesGrid() {
+  return <ServicesGridInner services={services} />;
+}
+
+function ServicesGridInner({ services }: { services: ServiceItem[] }) {
   return (
     <section className="bg-white py-16 md:py-24" id="services">
       <div className="container mx-auto px-4">
@@ -111,66 +127,7 @@ export default function ServicesGrid() {
         {/* Services Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <a
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-100 hover:shadow-xl"
-              href={service.href}
-              key={service.title}
-            >
-              {/* Image */}
-              <div className="relative h-40 overflow-hidden">
-                <img
-                  alt={service.title}
-                  className="relative z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                  src={service.image}
-                />
-                {/* Fallback gradient - only visible if image fails */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-200 to-green-300" />
-                {/* Icon overlay */}
-                <div
-                  className={`absolute top-3 right-3 inline-flex rounded-xl bg-gradient-to-br ${service.color} z-20 p-2 shadow-lg`}
-                >
-                  <service.icon className="h-5 w-5 text-white" />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="mb-3 font-black text-gray-900 text-xl transition-colors group-hover:text-green-700">
-                  {service.title}
-                </h3>
-                <p className="mb-4 text-gray-600 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Features List */}
-                <ul className="mt-auto mb-6 space-y-2">
-                  {service.features.map((feature) => (
-                    <li
-                      className="flex items-center gap-2 font-medium text-gray-700 text-xs"
-                      key={feature}
-                    >
-                      <div className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-green-50">
-                        <Check className="h-2.5 w-2.5 text-green-600" />
-                      </div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Link */}
-                <div className="flex items-center gap-2 font-bold text-green-700 text-sm transition-colors group-hover:gap-3">
-                  View Details
-                  <ArrowRight className="h-4 w-4" />
-                </div>
-              </div>
-
-              {/* Subtle Gradient Hover */}
-              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-green-50/0 via-green-50/0 to-green-50 opacity-0 transition-opacity group-hover:opacity-100" />
-            </a>
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
 
@@ -212,5 +169,75 @@ export default function ServicesGrid() {
         </div>
       </div>
     </section>
+  );
+}
+
+function ServiceCard({ service }: { service: ServiceItem }) {
+  const imageConfig = useSectionImageStyle(service.id);
+  const imageSrc =
+    imageConfig?.src ||
+    `/images/gallery/${service.id === "services-installation" ? "013" : service.id === "services-guards" ? "049" : service.id === "services-repair" ? "005" : service.id === "services-soffit" ? "032" : service.id === "services-commercial" ? "072" : "001"}.jpg`;
+
+  return (
+    <a
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-100 hover:shadow-xl"
+      href={service.href}
+    >
+      {/* Image */}
+      <div className="relative h-40 overflow-hidden">
+        <img
+          alt={service.title}
+          className="relative z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          onError={(e) => {
+            e.currentTarget.style.display = "none";
+          }}
+          src={imageSrc}
+          style={imageConfig?.style}
+        />
+        {/* Fallback gradient - only visible if image fails */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-200 to-green-300" />
+        {/* Icon overlay */}
+        <div
+          className={`absolute top-3 right-3 inline-flex rounded-xl bg-gradient-to-br ${service.color} z-20 p-2 shadow-lg`}
+        >
+          <service.icon className="h-5 w-5 text-white" />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="mb-3 font-black text-gray-900 text-xl transition-colors group-hover:text-green-700">
+          {service.title}
+        </h3>
+        <p className="mb-4 text-gray-600 text-sm leading-relaxed">
+          {service.description}
+        </p>
+
+        {/* Features List */}
+        <ul className="mt-auto mb-6 space-y-2">
+          {service.features.map((feature) => (
+            <li
+              className="flex items-center gap-2 font-medium text-gray-700 text-xs"
+              key={feature}
+            >
+              <div className="flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-green-50">
+                <Check className="h-2.5 w-2.5 text-green-600" />
+              </div>
+              {feature}
+            </li>
+          ))}
+        </ul>
+
+        {/* Link */}
+        <div className="flex items-center gap-2 font-bold text-green-700 text-sm transition-colors group-hover:gap-3">
+          View Details
+          <ArrowRight className="h-4 w-4" />
+        </div>
+      </div>
+
+      {/* Subtle Gradient Hover */}
+      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-green-50/0 via-green-50/0 to-green-50 opacity-0 transition-opacity group-hover:opacity-100" />
+    </a>
   );
 }

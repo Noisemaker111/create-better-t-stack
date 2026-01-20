@@ -124,3 +124,84 @@ Biome's linter will catch most issues automatically. Focus your attention on:
 ---
 
 Most formatting and common issues are automatically fixed by Biome. Run `bun x ultracite fix` before committing to ensure compliance.
+
+## Agent Workflow Integration
+
+### Before Completing Any Task
+
+Agents MUST run biome checks at task completion:
+
+```bash
+bun x ultracite check
+```
+
+If errors are found:
+1. Run `bun x ultracite fix` to auto-fix formatting issues
+2. Review remaining linting errors
+3. Fix accessibility issues (a11y rules are strict)
+4. Re-run `bun x ultracite check` until clean
+
+### Common Error Patterns to Fix
+
+- **useValidAnchor**: Use `<button>` for actions, `<a>` for navigation only
+- **useImageSize**: Add explicit width/height to `<img>` tags
+- **useButtonType**: Add `type="button"` or `type="submit"` to buttons
+- **noNestedTernary**: Convert to if-else statements
+- **noNoninteractiveElementInteractions**: Wrap interactive elements properly
+- **useLabelWithoutControl**: Associate labels with inputs via `htmlFor`
+
+### Build Verification
+
+Always verify the build passes after biome checks:
+
+```bash
+bun run build
+```
+
+If the build fails, fix the errors before marking a task complete.
+
+---
+
+## Biome Configuration
+
+The project uses Biome through Ultracite preset. Configuration is inherited from the preset - no local biome.jsonc required unless overriding specific rules.
+
+---
+
+## Development Workflow
+
+### Running the Project
+
+**Development (root):**
+```bash
+bun dev
+```
+This runs both Convex backend and web frontend concurrently through Turborepo. Changes to Convex functions are automatically pushed.
+
+**Convex only:**
+```bash
+cd packages/backend && bunx convex dev
+```
+
+**Web only:**
+```bash
+bun run dev:web
+```
+
+### After Adding Convex Functions
+
+When adding new Convex queries or mutations:
+
+1. Functions are automatically deployed when running `bun dev` (root)
+2. Or manually deploy: `cd packages/backend && bunx convex dev`
+3. Regenerate types: `cd packages/backend && bunx convex codegen`
+4. The frontend types are generated to `packages/backend/convex/_generated/api.d.ts`
+
+### Deployment
+
+**Production build:**
+```bash
+bun run build
+```
+
+This runs `convex codegen`, deploys to Convex, then builds the web app.

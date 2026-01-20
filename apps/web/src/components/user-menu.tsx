@@ -1,7 +1,7 @@
 import { api } from "@btgwebsite-new/backend/convex/_generated/api";
 import { useNavigate } from "@tanstack/react-router";
 import { useQuery } from "convex/react";
-
+import { Image, Palette } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,7 +26,24 @@ export default function UserMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-card">
         <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel>Content Manager</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem
+            onClick={() => {
+              navigate({ to: "/admin/section" });
+            }}
+          >
+            <Palette className="mr-2 h-4 w-4" />
+            Section Editor
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => {
+              navigate({ to: "/admin/gallery" });
+            }}
+          >
+            <Image className="mr-2 h-4 w-4" />
+            Gallery Manager
+          </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>{user?.email}</DropdownMenuItem>
           <DropdownMenuItem
@@ -34,9 +51,7 @@ export default function UserMenu() {
               authClient.signOut({
                 fetchOptions: {
                   onSuccess: () => {
-                    navigate({
-                      to: "/dashboard",
-                    });
+                    navigate({ to: "/" });
                   },
                 },
               });

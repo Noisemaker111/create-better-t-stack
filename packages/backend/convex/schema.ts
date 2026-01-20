@@ -42,4 +42,54 @@ export default defineSchema({
     .index("by_formType", ["formType"])
     .index("by_status", ["status"])
     .index("by_createdAt", ["createdAt"]),
+
+  // Gallery items for CMS-managed gallery
+  galleryItems: defineTable({
+    // Image reference (path relative to public folder)
+    src: v.string(),
+    category: v.string(),
+
+    // Metadata
+    title: v.string(),
+    location: v.string(),
+    description: v.string(),
+
+    // Ordering (lower = appears first)
+    sortOrder: v.number(),
+
+    // Visibility
+    isVisible: v.boolean(),
+
+    // Timestamps
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_category", ["category"])
+    .index("by_sortOrder", ["sortOrder"])
+    .index("by_category_and_order", ["category", "sortOrder"]),
+
+  // Page section configurations (for visual editing)
+  sectionConfigs: defineTable({
+    // Section identifier (e.g., "hero", "services", "project-showcase")
+    sectionId: v.string(),
+
+    // Image configuration
+    imageSrc: v.optional(v.string()),
+    imageAlt: v.optional(v.string()),
+
+    // Image positioning (percentage 0-100)
+    positionX: v.optional(v.number()),
+    positionY: v.optional(v.number()),
+    scale: v.optional(v.number()),
+
+    // Visibility
+    isVisible: v.optional(v.boolean()),
+
+    // Custom content (JSON for flexible section-specific data)
+    customContent: v.optional(v.string()),
+
+    // Timestamps
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_sectionId", ["sectionId"]),
 });

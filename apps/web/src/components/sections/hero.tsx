@@ -1,19 +1,23 @@
 import { Award, CheckCircle, Clock, Phone, Shield, Star } from "lucide-react";
 import { trackCTAClick, trackPhoneClick } from "@/lib/analytics";
+import { useSectionImageStyle } from "@/lib/section-config";
 import QuoteFormContent from "./quote-form-content";
 
 const PHONE_NUMBER = "(248) 561-7790";
 const PHONE_LINK = "tel:+12485617790";
 
 export default function Hero() {
+  const heroImage = useSectionImageStyle("hero");
+
   return (
     <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-green-950">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          alt="Gutter Installation"
+          alt={heroImage?.alt || "Gutter Installation"}
           className="h-full w-full object-cover opacity-40 mix-blend-overlay"
-          src="/images/hero-bg.jpeg"
+          src={heroImage?.src || "/images/hero-bg.jpeg"}
+          style={heroImage?.style}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-green-950 via-green-950/80 to-transparent" />
       </div>
@@ -64,8 +68,8 @@ export default function Hero() {
               className="max-w-2xl animate-fade-up text-green-50/80 text-xl leading-relaxed md:text-2xl"
               style={{ animationDelay: "200ms" }}
             >
-              Protect your legacy from water damage. Family-owned, father-son
-              team with 22+ years of Michigan roofing & gutter expertise.
+              Protect your home from water damage. Family-owned, father-son team
+              with 22+ years of Michigan roofing & gutter expertise.
             </p>
 
             {/* Value Props */}
@@ -102,10 +106,10 @@ export default function Hero() {
                 className="inline-flex items-center justify-center rounded-xl bg-[#1eeb00] px-8 py-5 font-black text-black text-lg shadow-xl transition-all hover:bg-[#19c600] active:scale-95"
                 href="#quote"
                 onClick={() =>
-                  trackCTAClick("hero_mobile", "Get My Free Estimate")
+                  trackCTAClick("hero_mobile", "Get Your Free Quote")
                 }
               >
-                Get My Free Estimate
+                Get Your Free Quote
               </a>
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 bg-white/5 px-8 py-5 font-bold text-lg text-white backdrop-blur-md transition-all hover:bg-white/10"
@@ -141,12 +145,11 @@ export default function Hero() {
             <div className="absolute -inset-10 rounded-full bg-green-500/20 blur-[100px]" />
 
             <div className="relative rounded-3xl border border-white/10 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-
-                <div className="mb-4">
-                  <h3 className="font-black text-3xl text-gray-900 tracking-tight">
-                    Get Your Free Quote
-                  </h3>
-                </div>
+              <div className="mb-4">
+                <h3 className="font-black text-3xl text-gray-900 tracking-tight">
+                  Get Your Free Quote
+                </h3>
+              </div>
 
               <QuoteFormContent />
 
