@@ -13,7 +13,6 @@
     "better-auth": "catalog:",
     "convex": "catalog:",
     "dotenv": "catalog:",
-    "form-to-inbox": "file:C:/Users/Jk101/Projects/Live/form-to-inbox",
     "zod": "catalog:"
   },
   "devDependencies": {

@@ -18,7 +18,9 @@
   "type": "module",
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build",
+    "build": "cd packages/backend && bunx convex codegen && bunx convex deploy --verbose --cmd-url-env-var-name VITE_CONVEX_URL --cmd \"bun run --cwd ../../apps/web build\"",
+    "build:vercel": "cd packages/backend && bunx convex codegen && bunx convex deploy --cmd-url-env-var-name VITE_CONVEX_URL --cmd \"bun run --cwd ../../apps/web build\"",
+    "build:vercel:verbose": "cd packages/backend && bunx convex codegen && bunx convex deploy --verbose --cmd-url-env-var-name VITE_CONVEX_URL --cmd \"bun run --cwd ../../apps/web build\"",
     "check-types": "turbo check-types",
     "dev:native": "turbo -F native dev",
     "dev:web": "turbo -F web dev",

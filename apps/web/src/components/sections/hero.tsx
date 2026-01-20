@@ -141,18 +141,12 @@ export default function Hero() {
             <div className="absolute -inset-10 rounded-full bg-green-500/20 blur-[100px]" />
 
             <div className="relative rounded-3xl border border-white/10 bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-              <div className="absolute top-0 right-0 rounded-tr-3xl rounded-bl-2xl bg-yellow-400 px-4 py-1.5 font-black text-[11px] text-black uppercase tracking-tighter">
-                ⚡ Limited 10% Discount
-              </div>
 
-              <div className="mb-4">
-                <h3 className="font-black text-3xl text-gray-900 tracking-tight">
-                  Get Your Free Quote
-                </h3>
-                <p className="mt-1 font-medium text-gray-600">
-                  Michigan's fastest quote turnaround. Guaranteed.
-                </p>
-              </div>
+                <div className="mb-4">
+                  <h3 className="font-black text-3xl text-gray-900 tracking-tight">
+                    Get Your Free Quote
+                  </h3>
+                </div>
 
               <QuoteFormContent />
 
