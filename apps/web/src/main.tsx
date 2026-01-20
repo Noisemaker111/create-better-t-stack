@@ -1,34 +1,9 @@
-import { env } from "@btgwebsite-new/env/web";
-import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { ConvexReactClient } from "convex/react";
+import { RouterProvider } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
 
-import { authClient } from "@/lib/auth-client";
+import { getRouter } from "./router";
 
-import Loader from "./components/loader";
-import { routeTree } from "./routeTree.gen";
-const convex = new ConvexReactClient(env.VITE_CONVEX_URL);
-
-const router = createRouter({
-  routeTree,
-  defaultPreload: "intent",
-  defaultPendingComponent: () => <Loader />,
-  context: {},
-  Wrap: function WrapComponent({ children }: { children: React.ReactNode }) {
-    return (
-      <ConvexBetterAuthProvider client={convex} authClient={authClient}>
-        {children}
-      </ConvexBetterAuthProvider>
-    );
-  },
-});
-
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}
+const router = getRouter();
 
 const rootElement = document.getElementById("app");
 

@@ -1,0 +1,36 @@
+# BTG Gutters Robots.txt
+# Optimized for all search engines including AI crawlers
+# Last Updated: January 2026
+
+# Allow all search crawlers
+User-agent: *
+Allow: /
+
+# Allow AI crawlers (ChatGPT, Claude, Perplexity, etc.)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap location
+Sitemap: https://btggutters.com/sitemap.xml
+
+# Crawl-delay for regular bots (optional, remove if not needed)
+# Crawl-delay: 10
+
+# Keep index.html from creating duplicate content issues
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^btggutters\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.btggutters.com/$1 [R=301,L]
+
+# Disallow admin/private paths (if any)
+# Disallow: /admin/
+# Disallow: /api/
+# Disallow: /private/
