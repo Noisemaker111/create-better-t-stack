@@ -1,23 +1,25 @@
+import { Link } from "@tanstack/react-router";
 import { Award, CheckCircle, Clock, Phone, Shield, Star } from "lucide-react";
+import { EditableSectionImage } from "@/components/admin/editable-section-image";
 import { trackCTAClick, trackPhoneClick } from "@/lib/analytics";
-import { useSectionImageStyle } from "@/lib/section-config";
+import { BRAND } from "@/lib/images";
 import QuoteFormContent from "./quote-form-content";
 
 const PHONE_NUMBER = "(248) 561-7790";
 const PHONE_LINK = "tel:+12485617790";
 
 export default function Hero() {
-  const heroImage = useSectionImageStyle("hero");
-
   return (
     <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-green-950">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          alt={heroImage?.alt || "Gutter Installation"}
-          className="h-full w-full object-cover opacity-40 mix-blend-overlay"
-          src={heroImage?.src || "/images/hero-bg.jpeg"}
-          style={heroImage?.style}
+        <EditableSectionImage
+          className="absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-overlay"
+          fallbackAlt="Gutter Installation"
+          fallbackSrc={BRAND.heroBg}
+          loading="eager"
+          sectionId="hero"
+          usagePath="/"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-green-950 via-green-950/80 to-transparent" />
       </div>
@@ -93,7 +95,9 @@ export default function Hero() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-500/30 bg-green-500/20">
                   <Clock className="h-5 w-5 text-[#1eeb00]" />
                 </div>
-                <span className="font-semibold text-lg">Same-Week Quotes</span>
+                <span className="font-semibold text-lg">
+                  Flexible Scheduling
+                </span>
               </div>
             </div>
 
@@ -102,15 +106,16 @@ export default function Hero() {
               className="flex animate-fade-up flex-col gap-4 sm:hidden"
               style={{ animationDelay: "400ms" }}
             >
-              <a
+              <Link
                 className="inline-flex items-center justify-center rounded-xl bg-[#1eeb00] px-8 py-5 font-black text-black text-lg shadow-xl transition-all hover:bg-[#19c600] active:scale-95"
-                href="#quote"
+                hash="quote"
                 onClick={() =>
                   trackCTAClick("hero_mobile", "Get Your Free Quote")
                 }
+                to="/"
               >
                 Get Your Free Quote
-              </a>
+              </Link>
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/20 bg-white/5 px-8 py-5 font-bold text-lg text-white backdrop-blur-md transition-all hover:bg-white/10"
                 href={PHONE_LINK}

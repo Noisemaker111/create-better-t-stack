@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { requireAdminUser } from "./adminGuard";
 
 // ============ QUERIES ============
 
@@ -60,6 +61,7 @@ export const upsertSectionConfig = mutation({
     customContent: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
 
     // Check if config exists
@@ -98,6 +100,7 @@ export const updateImagePosition = mutation({
     positionY: v.number(),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
 
     const existing = await ctx.db
@@ -136,6 +139,7 @@ export const updateImageScale = mutation({
     scale: v.number(),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
 
     const existing = await ctx.db
@@ -168,6 +172,7 @@ export const updateImageScale = mutation({
 export const deleteSectionConfig = mutation({
   args: { sectionId: v.string() },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const existing = await ctx.db
       .query("sectionConfigs")
       .withIndex("by_sectionId")
@@ -186,6 +191,7 @@ export const deleteSectionConfig = mutation({
 export const initializeDefaultSections = mutation({
   args: {},
   handler: async (ctx) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
     const defaultSections = [
       {
@@ -246,6 +252,51 @@ export const initializeDefaultSections = mutation({
         sectionId: "services-cleaning",
         imageSrc: "/images/gallery/001.jpg",
         imageAlt: "Gutter Cleaning Service",
+        positionX: 50,
+        positionY: 50,
+        scale: 100,
+        isVisible: true,
+      },
+      {
+        sectionId: "project-1",
+        imageSrc: "/images/gallery/001.jpg",
+        imageAlt: "Premium Seamless Gutter Installation",
+        positionX: 50,
+        positionY: 50,
+        scale: 100,
+        isVisible: true,
+      },
+      {
+        sectionId: "project-2",
+        imageSrc: "/images/gallery/002.jpg",
+        imageAlt: "Complete Home Gutter System",
+        positionX: 50,
+        positionY: 50,
+        scale: 100,
+        isVisible: true,
+      },
+      {
+        sectionId: "project-3",
+        imageSrc: "/images/gallery/003.jpg",
+        imageAlt: "Gutter Installation in Progress",
+        positionX: 50,
+        positionY: 50,
+        scale: 100,
+        isVisible: true,
+      },
+      {
+        sectionId: "project-4",
+        imageSrc: "/images/gallery/048.jpg",
+        imageAlt: "Plastic Leaf Guard Installation",
+        positionX: 50,
+        positionY: 50,
+        scale: 100,
+        isVisible: true,
+      },
+      {
+        sectionId: "about-story",
+        imageSrc: "/images/gallery/002.jpg",
+        imageAlt: "BTG Gutters - Professional Gutter Installation",
         positionX: 50,
         positionY: 50,
         scale: 100,

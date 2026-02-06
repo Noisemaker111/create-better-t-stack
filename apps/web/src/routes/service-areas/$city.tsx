@@ -104,6 +104,10 @@ function CityPage() {
     trackCityPageView(cityName);
   }, [cityName]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [citySlug]);
+
   const nearbyCities = serviceAreasData
     .filter(
       (a) =>
@@ -114,24 +118,34 @@ function CityPage() {
 
   const services = [
     {
+      slug: "installation",
       title: "Seamless Gutter Installation",
       description: `Custom-fabricated seamless aluminum gutters for ${cityName} homes, designed to withstand the heavy ${county} snow loads.`,
       icon: Droplets,
     },
     {
+      slug: "repair",
       title: "Expert Gutter Repair",
       description: `Protecting your ${cityName} foundation by fixing leaks, sagging sections, and damaged downspouts before they cause issues.`,
       icon: Wrench,
     },
     {
+      slug: "leaf-guards",
       title: "Premium Leaf Guards",
       description: `Keep your ${cityName} gutters free of maple seeds, oak leaves, and debris with our high-performance gutter protection.`,
       icon: Leaf,
     },
     {
+      slug: "soffit-fascia",
       title: "Soffit & Fascia Repair",
       description: `Protecting the structural integrity of ${cityName} roofs by repairing wood rot and water-damaged fascia boards.`,
       icon: Home,
+    },
+    {
+      slug: "commercial",
+      title: "Commercial Gutters",
+      description: `Durable, code-aware gutter solutions for commercial properties across ${cityName} and surrounding areas.`,
+      icon: CheckCircle,
     },
   ];
 
@@ -159,19 +173,20 @@ function CityPage() {
               professional seamless gutters installed by our family-owned team.
             </p>
             <div className="flex flex-wrap justify-center gap-5">
-              <a
+              <Link
                 className="group relative inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-bold text-green-900 text-lg transition-all hover:bg-green-50 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                href="#quote"
+                hash="quote"
                 onClick={() =>
                   trackCTAClick(
                     "city_page",
                     `Request Free ${cityName} Estimate`
                   )
                 }
+                to="/"
               >
                 Request Free {cityName} Estimate
                 <Clock className="h-5 w-5 text-green-700 group-hover:animate-pulse" />
-              </a>
+              </Link>
               <a
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-white/40 bg-white/5 px-8 py-4 font-bold text-lg text-white backdrop-blur-sm transition-all hover:bg-white/10"
                 href="tel:+12485617790"
@@ -340,18 +355,19 @@ function CityPage() {
                     ))}
                   </div>
                   <div className="px-8 pb-8">
-                    <a
+                    <Link
                       className="block w-full rounded-xl bg-gray-900 py-4 text-center font-bold text-white shadow-lg transition-colors hover:bg-gray-800"
-                      href="#quote"
+                      hash="quote"
                       onClick={() =>
                         trackCTAClick(
                           "city_page",
                           `Get My Free ${cityName} Quote`
                         )
                       }
+                      to="/"
                     >
                       Get My Free {cityName} Quote
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -392,6 +408,14 @@ function CityPage() {
                   <p className="font-light text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
+                  <Link
+                    className="mt-5 inline-flex items-center gap-2 font-semibold text-green-700 transition-colors hover:text-green-800"
+                    params={{ city: citySlug, service: service.slug }}
+                    to="/service-areas/$city/$service"
+                  >
+                    View {service.title} in {cityName}
+                    <ExternalLink className="h-4 w-4" />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -400,7 +424,7 @@ function CityPage() {
       </section>
 
       {/* Quote Form Section */}
-      <section className="relative scroll-mt-20" id="quote">
+      <section className="relative scroll-mt-24" id="quote">
         <QuoteForm />
       </section>
 

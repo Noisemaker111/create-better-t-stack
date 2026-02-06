@@ -6,14 +6,14 @@ const PHONE_LINK = "tel:+12485617790";
 
 const benefits = [
   { icon: CheckCircle, text: "Free, no-obligation estimate" },
-  { icon: Clock, text: "Response within 24 hours" },
+  { icon: Clock, text: "Prompt follow-up" },
   { icon: Shield, text: "100% insured" },
 ];
 
 export default function QuoteForm() {
   return (
     <section
-      className="bg-gradient-to-br from-green-700 to-green-900 py-16 md:py-24"
+      className="scroll-mt-24 bg-gradient-to-br from-green-700 to-green-900 py-16 md:py-24"
       id="quote"
     >
       <div className="container mx-auto px-4">
@@ -27,8 +27,8 @@ export default function QuoteForm() {
               Ready to Protect Your Home?
             </h2>
             <p className="mb-8 text-green-100 text-lg">
-              Just your name and phone number. We&apos;ll call you back within
-              24 hours to schedule your free, no-pressure quote.
+              Just your name and phone number. We&apos;ll follow up to discuss
+              your project and schedule your free, no-pressure quote.
             </p>
 
             <div className="mb-8 space-y-4">
@@ -41,7 +41,9 @@ export default function QuoteForm() {
             </div>
 
             <div className="rounded-xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm">
-              <p className="mb-2 text-green-100">Prefer to talk? Call now:</p>
+              <p className="mb-2 text-green-100">
+                Prefer to talk? Call or text:
+              </p>
               <a
                 className="flex items-center gap-3 font-bold text-2xl text-white transition-colors hover:text-green-200"
                 href={PHONE_LINK}

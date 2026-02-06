@@ -94,6 +94,7 @@ function SoffitFasciaPage() {
         { name: "Gutter Repair", href: "/services/repair" },
         { name: "Commercial Gutters", href: "/services/commercial" },
       ]}
+      serviceSlug="soffit-fascia"
       subtitle="Protect your home's structural integrity with professional soffit and fascia services."
       title="Soffit & Fascia Repairs"
     />

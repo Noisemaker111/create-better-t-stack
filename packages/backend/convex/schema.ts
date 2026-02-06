@@ -92,4 +92,11 @@ export default defineSchema({
     createdAt: v.number(),
     updatedAt: v.number(),
   }).index("by_sectionId", ["sectionId"]),
+
+  // Admin allowlist for CMS access
+  adminUsers: defineTable({
+    email: v.string(),
+    createdAt: v.number(),
+    createdByEmail: v.string(),
+  }).index("by_email", ["email"]),
 });

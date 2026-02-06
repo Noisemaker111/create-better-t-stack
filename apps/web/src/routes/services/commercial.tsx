@@ -94,6 +94,7 @@ function CommercialPage() {
         { name: "Leaf Guards", href: "/services/leaf-guards" },
         { name: "Gutter Repair", href: "/services/repair" },
       ]}
+      serviceSlug="commercial"
       subtitle="Professional gutter solutions for businesses, industrial buildings, and commercial properties."
       title="Commercial Gutters"
     />

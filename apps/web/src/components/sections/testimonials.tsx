@@ -1,4 +1,5 @@
 import { CheckCircle, Star } from "lucide-react";
+import { getGalleryImageSrc } from "@/lib/images";
 
 // Google SVG Logo Component
 function GoogleLogo({ className = "h-5 w-5" }: { className?: string }) {
@@ -37,7 +38,7 @@ const testimonials = [
     text: "Mr. Mike and his son did an amazing job replacing our gutters. They were punctual, professional, and the cleanup was spotless. Highly recommend!",
     service: "Gutter Replacement",
     date: "Verified Customer",
-    image: "/images/gallery/058.jpg",
+    image: getGalleryImageSrc("058"),
   },
   {
     name: "Robert T.",
@@ -46,16 +47,16 @@ const testimonials = [
     text: "Best gutter company I've ever worked with. They were honest about what we actually needed and saved us money. The father-son team is fantastic!",
     service: "Gutter Installation",
     date: "Verified Customer",
-    image: "/images/gallery/059.jpg",
+    image: getGalleryImageSrc("059"),
   },
   {
     name: "Jennifer K.",
     location: "Westland, MI",
     rating: 5,
-    text: "Quick service, fair pricing, and excellent work. They came out the same day I called for an estimate and installed the next week. Very impressed!",
+    text: "Fair pricing and excellent work. They communicated clearly throughout the estimate and installation process. Very impressed!",
     service: "Leaf Guards",
     date: "Verified Customer",
-    image: "/images/gallery/050.jpg",
+    image: getGalleryImageSrc("050"),
   },
   {
     name: "Michael D.",
@@ -64,7 +65,7 @@ const testimonials = [
     text: "They repaired water-damaged wood on my fascia that other companies wanted to charge a fortune for. Honest, affordable, and quality work.",
     service: "Fascia Repair",
     date: "Verified Customer",
-    image: "/images/gallery/033.jpg",
+    image: getGalleryImageSrc("033"),
   },
   {
     name: "Linda H.",
@@ -73,22 +74,25 @@ const testimonials = [
     text: "Professional from start to finish. The gutters look beautiful and the price was very reasonable. They even cleaned up better than before they arrived!",
     service: "Seamless Gutters",
     date: "Verified Customer",
-    image: "/images/gallery/060.jpg",
+    image: getGalleryImageSrc("060"),
   },
   {
     name: "David W.",
     location: "Plymouth, MI",
     rating: 5,
-    text: "Called on a Friday, got an estimate Saturday, installation Monday. That's the kind of service you rarely find anymore. Great work, great people!",
+    text: "The estimate and installation process was smooth and professional. That's the kind of service you rarely find anymore. Great work, great people!",
     service: "Gutter Replacement",
     date: "Verified Customer",
-    image: "/images/gallery/021.jpg",
+    image: getGalleryImageSrc("021"),
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section
+      className="relative scroll-mt-24 overflow-hidden bg-white py-24 sm:py-32"
+      id="testimonials"
+    >
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.green.50),white)] opacity-20" />
       <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-green-600/10 shadow-xl ring-1 ring-green-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
@@ -209,7 +213,7 @@ export default function Testimonials() {
         <div className="mt-20 flex flex-col items-center justify-center gap-6">
           <a
             className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gray-900 px-8 py-4 font-black text-white shadow-gray-900/10 shadow-xl transition-all hover:bg-green-600 hover:ring-offset-2 active:scale-95"
-            href="https://goo.gl/maps/rrgMHbdWMzNdDjvk9"
+            href="https://www.google.com/maps/place/BTG+Gutters/@42.3289327,-83.3460617,15z/data=!4m6!3m5!1s0x883b4d8d12aea83b:0xb2f3bb14fe4ddd36!8m2!3d42.3289327!4d-83.3460617!16s%2Fg%2F11syf4sksd"
             rel="noopener noreferrer"
             target="_blank"
           >

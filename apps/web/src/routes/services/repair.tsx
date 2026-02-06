@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services/repair")({
   head: createServiceHead({
     pageTitle: "Gutter Repair Services",
     metaDescription:
-      "Expert gutter repair in Southeast Michigan. Fix leaks, sagging sections, and damaged downspouts. Same-day service available. Free estimates!",
+      "Expert gutter repair in Southeast Michigan. Fix leaks, sagging sections, and damaged downspouts. Free estimates.",
     keywords:
       "gutter repair, leak repair, gutter fix, downspout repair, sagging gutters, gutter maintenance, repair gutters Michigan",
   }),
@@ -30,9 +30,9 @@ function RepairPage() {
             "We'll be honest about whether repair or replacement makes more sense for your situation.",
         },
         {
-          title: "Quick Response",
+          title: "Responsive Scheduling",
           description:
-            "We know gutter problems can't wait. We offer same-day and next-day service for urgent repairs.",
+            "We know gutter problems can't wait. We prioritize urgent repairs and schedule based on availability.",
         },
         {
           title: "Quality Materials",
@@ -73,9 +73,9 @@ function RepairPage() {
             "If your gutters have multiple problem areas, are over 20 years old, or show extensive rust/damage, replacement is often more cost-effective. We'll give you an honest recommendation.",
         },
         {
-          question: "Do you offer emergency repairs?",
+          question: "Do you handle urgent repairs?",
           answer:
-            "Yes, we offer emergency services for urgent situations like gutters that have fallen or are causing immediate water damage. Call us anytime.",
+            "Yes. We prioritize urgent situations like fallen gutters or active water issues and coordinate the soonest available service window.",
         },
       ]}
       features={[
@@ -86,15 +86,16 @@ function RepairPage() {
         "Hanger replacement",
         "Joint and seam repairs",
         "End cap repairs",
-        "Same-day service available",
+        "Priority scheduling for urgent issues",
       ]}
       icon={Wrench}
       relatedServices={[
         { name: "Gutter Installation", href: "/services/installation" },
-        { name: "Gutter Cleaning", href: "/services/cleaning" },
+        { name: "Leaf Guards", href: "/services/leaf-guards" },
         { name: "Soffit & Fascia", href: "/services/soffit-fascia" },
       ]}
-      subtitle="Fast, reliable gutter repairs to restore proper function and prevent water damage."
+      serviceSlug="repair"
+      subtitle="Reliable gutter repairs to restore proper function and prevent water damage."
       title="Gutter Repair"
     />
   );

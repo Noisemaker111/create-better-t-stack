@@ -28,6 +28,8 @@ export function getRouter() {
   const router = createTanStackRouter({
     routeTree,
     defaultPreload: "intent",
+    defaultPendingMs: 0,
+    defaultPendingMinMs: 300,
     defaultPendingComponent: () => <Loader />,
     defaultNotFoundComponent: () => <div>Not Found</div>,
     context: { queryClient, convexQueryClient },

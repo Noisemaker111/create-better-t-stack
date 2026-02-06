@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { getGalleryImagesForConvex } from "@/lib/images";
 
 export const Route = createFileRoute("/admin/gallery")({
   component: AdminGalleryPage,
@@ -196,6 +197,9 @@ function DragOverlayItem({ item }: { item: GalleryItem }) {
 }
 
 function AdminGalleryPage() {
+  const user = useQuery(api.auth.getCurrentUser);
+  const access = useQuery(api.adminAccess.isCurrentUserAllowed);
+
   // Data
   const galleryItems = useQuery(api.gallery.getAllGalleryItems);
   const updateMutation = useMutation(api.gallery.updateGalleryItem);
@@ -309,6 +313,37 @@ function AdminGalleryPage() {
     [updateMutation, editingItem]
   );
 
+  if (user === undefined || access === undefined) {
+    return (
+      <div className="container mx-auto py-8">
+        <div className="flex items-center justify-center py-12">
+          <div className="text-muted-foreground">
+            Checking authentication...
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!(user && access.allowed)) {
+    return (
+      <div className="container mx-auto py-8">
+        <div className="flex items-center justify-center py-12">
+          <div className="w-full max-w-lg rounded-2xl border bg-card p-6 shadow-sm">
+            <h1 className="font-bold text-2xl">Admin access required</h1>
+            <p className="mt-2 text-muted-foreground">
+              Please sign in at{" "}
+              <a className="underline" href="/admin">
+                /admin
+              </a>{" "}
+              with an allowlisted account.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Loading state
   if (galleryItems === undefined) {
     return (
@@ -336,546 +371,7 @@ function AdminGalleryPage() {
             </p>
             <Button
               onClick={() => {
-                const staticItems = [
-                  {
-                    src: "/images/gallery/001.jpg",
-                    category: "residential",
-                    title: "Premium Seamless Gutter Installation",
-                    location: "Garden City, MI",
-                    description:
-                      "Custom seamless aluminum gutter system installation with precise pitch for optimal drainage",
-                  },
-                  {
-                    src: "/images/gallery/002.jpg",
-                    category: "residential",
-                    title: "Complete Home Gutter System",
-                    location: "Livonia, MI",
-                    description:
-                      "Full home gutter replacement with 6-inch seamless aluminum gutters",
-                  },
-                  {
-                    src: "/images/gallery/003.jpg",
-                    category: "residential",
-                    title: "Gutter Installation in Progress",
-                    location: "Plymouth, MI",
-                    description:
-                      "Professional installation of new seamless gutter system with leaf guard compatibility",
-                  },
-                  {
-                    src: "/images/gallery/004.jpg",
-                    category: "residential",
-                    title: "Downspout Installation",
-                    location: "Southfield, MI",
-                    description:
-                      "Proper downspout placement for effective water drainage",
-                  },
-                  {
-                    src: "/images/gallery/005.jpg",
-                    category: "residential",
-                    title: "Gutter Repair Project",
-                    location: "Farmington Hills, MI",
-                    description:
-                      "Expert repair and replacement of damaged gutter sections",
-                  },
-                  {
-                    src: "/images/gallery/006.jpg",
-                    category: "residential",
-                    title: "Color-Matched Gutters",
-                    location: "Northville, MI",
-                    description:
-                      "50+ color options available to match any home exterior",
-                  },
-                  {
-                    src: "/images/gallery/007.jpg",
-                    category: "residential",
-                    title: "Seamless Gutter Close-Up",
-                    location: "Novi, MI",
-                    description:
-                      "Clean professional finish with concealed hangers every 12-18 inches",
-                  },
-                  {
-                    src: "/images/gallery/008.jpg",
-                    category: "residential",
-                    title: "Gutter System Installation",
-                    location: "Westland, MI",
-                    description:
-                      "Complete gutter system installation with proper pitch and drainage",
-                  },
-                  {
-                    src: "/images/gallery/009.jpg",
-                    category: "residential",
-                    title: "Residential Gutter Project",
-                    location: "Canton, MI",
-                    description:
-                      "Quality residential installation with premium aluminum materials",
-                  },
-                  {
-                    src: "/images/gallery/010.jpg",
-                    category: "residential",
-                    title: "Multi-Story Home Gutters",
-                    location: "Dearborn, MI",
-                    description:
-                      "Seamless gutters for multi-story residential home",
-                  },
-                  {
-                    src: "/images/gallery/011.jpg",
-                    category: "residential",
-                    title: "Downspout Work",
-                    location: "Taylor, MI",
-                    description:
-                      "Custom downspout configuration for proper water flow",
-                  },
-                  {
-                    src: "/images/gallery/012.jpg",
-                    category: "residential",
-                    title: "Corner Installation",
-                    location: "Romulus, MI",
-                    description:
-                      "Seamless corner pieces for complete gutter system",
-                  },
-                  {
-                    src: "/images/gallery/013.jpg",
-                    category: "residential",
-                    title: "Gutter Installation",
-                    location: "Inkster, MI",
-                    description: "New seamless aluminum gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/014.jpg",
-                    category: "residential",
-                    title: "Complete System",
-                    location: "Wayne, MI",
-                    description:
-                      "Full home gutter system with matching accessories",
-                  },
-                  {
-                    src: "/images/gallery/015.jpg",
-                    category: "residential",
-                    title: "Residential Installation",
-                    location: "Redford, MI",
-                    description:
-                      "Clean installation of seamless aluminum gutters",
-                  },
-                  {
-                    src: "/images/gallery/016.jpg",
-                    category: "residential",
-                    title: "Gutter Replacement",
-                    location: "Melvindale, MI",
-                    description:
-                      "Old gutter removal and new system installation",
-                  },
-                  {
-                    src: "/images/gallery/017.jpg",
-                    category: "residential",
-                    title: "Downspout Setup",
-                    location: "Southgate, MI",
-                    description:
-                      "Proper downspout configuration for water drainage",
-                  },
-                  {
-                    src: "/images/gallery/018.jpg",
-                    category: "residential",
-                    title: "Residential Project",
-                    location: "Wyandotte, MI",
-                    description: "Complete home gutter system installation",
-                  },
-                  {
-                    src: "/images/gallery/019.jpg",
-                    category: "residential",
-                    title: "Gutter Work",
-                    location: "Clinton, MI",
-                    description: "Quality residential gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/020.jpg",
-                    category: "residential",
-                    title: "System Installation",
-                    location: "Sterling Heights, MI",
-                    description: "Seamless aluminum gutter system for home",
-                  },
-                  {
-                    src: "/images/gallery/021.jpg",
-                    category: "residential",
-                    title: "Installation In Progress",
-                    location: "Oak Park, MI",
-                    description: "Mid-project seamless gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/022.jpg",
-                    category: "residential",
-                    title: "Gutter Setup",
-                    location: "Livonia, MI",
-                    description: "Initial setup of new gutter system",
-                  },
-                  {
-                    src: "/images/gallery/023.jpg",
-                    category: "residential",
-                    title: "Installation Detail",
-                    location: "Plymouth, MI",
-                    description:
-                      "Concealed hangers installed every 12-18 inches",
-                  },
-                  {
-                    src: "/images/gallery/024.jpg",
-                    category: "residential",
-                    title: "Residential Work",
-                    location: "Garden City, MI",
-                    description:
-                      "Quality craftsmanship on home gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/025.jpg",
-                    category: "residential",
-                    title: "Gutter Project",
-                    location: "Southfield, MI",
-                    description: "Complete residential gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/026.jpg",
-                    category: "residential",
-                    title: "Installation",
-                    location: "Novi, MI",
-                    description:
-                      "Seamless aluminum gutters for residential property",
-                  },
-                  {
-                    src: "/images/gallery/027.jpg",
-                    category: "residential",
-                    title: "Gutter System",
-                    location: "Farmington, MI",
-                    description: "Full gutter system with proper drainage",
-                  },
-                  {
-                    src: "/images/gallery/028.jpg",
-                    category: "residential",
-                    title: "Installation Work",
-                    location: "Northville, MI",
-                    description:
-                      "Professional installation with quality materials",
-                  },
-                  {
-                    src: "/images/gallery/029.jpg",
-                    category: "residential",
-                    title: "Residential Gutter",
-                    location: "Dearborn, MI",
-                    description: "Custom gutters for home exterior",
-                  },
-                  {
-                    src: "/images/gallery/030.jpg",
-                    category: "residential",
-                    title: "Installation",
-                    location: "Taylor, MI",
-                    description: "Seamless gutter installation for home",
-                  },
-                  {
-                    src: "/images/gallery/031.jpg",
-                    category: "residential",
-                    title: "Gutter Setup",
-                    location: "Wayne, MI",
-                    description: "New gutter system installation",
-                  },
-                  {
-                    src: "/images/gallery/032.jpg",
-                    category: "soffit",
-                    title: "Gutter & Fascia Installation",
-                    location: "Romulus, MI",
-                    description:
-                      "Complete gutter and fascia system installation",
-                  },
-                  {
-                    src: "/images/gallery/033.jpg",
-                    category: "soffit",
-                    title: "Downspout & Fascia",
-                    location: "Redford, MI",
-                    description: "Fascia replacement with downspout work",
-                  },
-                  {
-                    src: "/images/gallery/034.jpg",
-                    category: "soffit",
-                    title: "Commercial Fascia",
-                    location: "Livonia, MI",
-                    description:
-                      "Metal fascia installation for commercial building",
-                  },
-                  {
-                    src: "/images/gallery/035.jpg",
-                    category: "soffit",
-                    title: "Gutter Fascia",
-                    location: "Inkster, MI",
-                    description: "Fascia repair and gutter hanger installation",
-                  },
-                  {
-                    src: "/images/gallery/036.jpg",
-                    category: "soffit",
-                    title: "Fascia Replacement",
-                    location: "Westland, MI",
-                    description: "Complete fascia board replacement",
-                  },
-                  {
-                    src: "/images/gallery/037.jpg",
-                    category: "soffit",
-                    title: "Soffit Installation",
-                    location: "Southfield, MI",
-                    description: "New soffit with integrated gutter system",
-                  },
-                  {
-                    src: "/images/gallery/038.jpg",
-                    category: "soffit",
-                    title: "Fascia Work",
-                    location: "Canton, MI",
-                    description: "Fascia repair and metal trim installation",
-                  },
-                  {
-                    src: "/images/gallery/039.jpg",
-                    category: "soffit",
-                    title: "Soffit & Fascia",
-                    location: "Dearborn, MI",
-                    description:
-                      "Complete soffit and fascia replacement project",
-                  },
-                  {
-                    src: "/images/gallery/040.jpg",
-                    category: "soffit",
-                    title: "Fascia Detail",
-                    location: "Novi, MI",
-                    description: "Precision fascia work with color matching",
-                  },
-                  {
-                    src: "/images/gallery/041.jpg",
-                    category: "soffit",
-                    title: "Gutter Fascia",
-                    location: "Garden City, MI",
-                    description: "Fascia installation with concealed hangers",
-                  },
-                  {
-                    src: "/images/gallery/042.jpg",
-                    category: "soffit",
-                    title: "Soffit Replacement",
-                    location: "Wayne, MI",
-                    description: "Old soffit removal and new installation",
-                  },
-                  {
-                    src: "/images/gallery/043.jpg",
-                    category: "soffit",
-                    title: "Fascia Project",
-                    location: "Taylor, MI",
-                    description: "Complete fascia and trim installation",
-                  },
-                  {
-                    src: "/images/gallery/044.jpg",
-                    category: "soffit",
-                    title: "Soffit Work",
-                    location: "Wyandotte, MI",
-                    description: "Professional soffit installation",
-                  },
-                  {
-                    src: "/images/gallery/045.jpg",
-                    category: "soffit",
-                    title: "Fascia Installation",
-                    location: "Southgate, MI",
-                    description: "Metal fascia with color coordination",
-                  },
-                  {
-                    src: "/images/gallery/046.jpg",
-                    category: "soffit",
-                    title: "Soffit & Fascia",
-                    location: "Redford, MI",
-                    description: "Complete soffit and fascia system",
-                  },
-                  {
-                    src: "/images/gallery/047.jpg",
-                    category: "soffit",
-                    title: "Fascia Replacement",
-                    location: "Melvindale, MI",
-                    description: "Fascia board replacement project",
-                  },
-                  {
-                    src: "/images/gallery/048.jpg",
-                    category: "guards",
-                    title: "Plastic Leaf Guard",
-                    location: "Livonia, MI",
-                    description:
-                      "Durable plastic guard over gutter to keep it free of leaves",
-                  },
-                  {
-                    src: "/images/gallery/049.jpg",
-                    category: "guards",
-                    title: "Mesh Leaf Guard",
-                    location: "Plymouth, MI",
-                    description:
-                      "Mesh guards prevent leaves and large debris from entering gutters",
-                  },
-                  {
-                    src: "/images/gallery/050.jpg",
-                    category: "guards",
-                    title: "Leaf Guard Installation",
-                    location: "Farmington Hills, MI",
-                    description:
-                      "Professional leaf guard installation for year-round protection",
-                  },
-                  {
-                    src: "/images/gallery/051.jpg",
-                    category: "guards",
-                    title: "Gutter Guard Detail",
-                    location: "Southfield, MI",
-                    description: "Close-up of installed gutter guard system",
-                  },
-                  {
-                    src: "/images/gallery/052.jpg",
-                    category: "guards",
-                    title: "Mesh Guard System",
-                    location: "Novi, MI",
-                    description:
-                      "Complete mesh guard installation for debris prevention",
-                  },
-                  {
-                    src: "/images/gallery/053.jpg",
-                    category: "guards",
-                    title: "Plastic Guard",
-                    location: "Dearborn, MI",
-                    description:
-                      "Plastic guard over gutter on a roof for debris protection",
-                  },
-                  {
-                    src: "/images/gallery/054.jpg",
-                    category: "guards",
-                    title: "Closeup Guard",
-                    location: "Garden City, MI",
-                    description: "Closeup of gutters with leaf guard installed",
-                  },
-                  {
-                    src: "/images/gallery/055.jpg",
-                    category: "guards",
-                    title: "Guard Installation",
-                    location: "Westland, MI",
-                    description:
-                      "Professional installation of gutter guard system",
-                  },
-                  {
-                    src: "/images/gallery/056.jpg",
-                    category: "guards",
-                    title: "Mesh Guards",
-                    location: "Taylor, MI",
-                    description:
-                      "Mesh guards over troughs prevent debris and clogging",
-                  },
-                  {
-                    src: "/images/gallery/057.jpg",
-                    category: "guards",
-                    title: "Commercial Gutters & Guards",
-                    location: "Livonia, MI",
-                    description:
-                      "Heavy-duty commercial gutters with leaf guard protection",
-                  },
-                  {
-                    src: "/images/gallery/058.jpg",
-                    category: "residential",
-                    title: "New Gutters 2025",
-                    location: "Garden City, MI",
-                    description: "High-quality seamless gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/059.jpg",
-                    category: "residential",
-                    title: "Residential System",
-                    location: "Livonia, MI",
-                    description: "Complete gutter system for home",
-                  },
-                  {
-                    src: "/images/gallery/060.jpg",
-                    category: "residential",
-                    title: "Premium Installation",
-                    location: "Garden City, MI",
-                    description:
-                      "Premium seamless aluminum gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/061.jpg",
-                    category: "soffit",
-                    title: "Gutter & Soffit",
-                    location: "Plymouth, MI",
-                    description: "Integrated gutter and soffit installation",
-                  },
-                  {
-                    src: "/images/gallery/062.jpg",
-                    category: "soffit",
-                    title: "Soffit Installation",
-                    location: "Westland, MI",
-                    description: "New soffit installation project",
-                  },
-                  {
-                    src: "/images/gallery/063.jpg",
-                    category: "soffit",
-                    title: "Fascia & Trim",
-                    location: "Southfield, MI",
-                    description: "Fascia replacement with metal trim work",
-                  },
-                  {
-                    src: "/images/gallery/064.jpg",
-                    category: "soffit",
-                    title: "Gutter Fascia",
-                    location: "Canton, MI",
-                    description: "Fascia board with integrated gutter system",
-                  },
-                  {
-                    src: "/images/gallery/065.jpg",
-                    category: "soffit",
-                    title: "Fascia Project",
-                    location: "Novi, MI",
-                    description: "Complete fascia installation and repair",
-                  },
-                  {
-                    src: "/images/gallery/066.jpg",
-                    category: "soffit",
-                    title: "Soffit Work",
-                    location: "Garden City, MI",
-                    description: "Professional soffit installation",
-                  },
-                  {
-                    src: "/images/gallery/067.jpg",
-                    category: "soffit",
-                    title: "Fascia Replacement",
-                    location: "Dearborn, MI",
-                    description: "Complete fascia board replacement project",
-                  },
-                  {
-                    src: "/images/gallery/068.jpg",
-                    category: "soffit",
-                    title: "Soffit Detail",
-                    location: "Wayne, MI",
-                    description: "Precision soffit installation work",
-                  },
-                  {
-                    src: "/images/gallery/069.jpg",
-                    category: "soffit",
-                    title: "Fascia Installation",
-                    location: "Taylor, MI",
-                    description: "Metal fascia installation with gutters",
-                  },
-                  {
-                    src: "/images/gallery/070.jpg",
-                    category: "soffit",
-                    title: "Gutter Fascia",
-                    location: "Southgate, MI",
-                    description: "Fascia and gutter installation",
-                  },
-                  {
-                    src: "/images/gallery/071.jpg",
-                    category: "residential",
-                    title: "Gutter Installation",
-                    location: "Westland, MI",
-                    description: "Complete home gutter system",
-                  },
-                  {
-                    src: "/images/gallery/072.jpg",
-                    category: "commercial",
-                    title: "Commercial Gutter System",
-                    location: "Livonia, MI",
-                    description:
-                      "Heavy-duty commercial gutter installation for large building",
-                  },
-                ];
-                initializeMutation({ items: staticItems });
+                initializeMutation({ items: getGalleryImagesForConvex() });
               }}
             >
               Import Existing Gallery Images

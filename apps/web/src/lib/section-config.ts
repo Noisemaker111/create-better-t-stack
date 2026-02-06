@@ -1,27 +1,12 @@
 import { api } from "@btgwebsite-new/backend/convex/_generated/api";
 import { useQuery } from "convex/react";
 
-type SectionConfig = {
-  _id: string;
-  _creationTime: number;
-  sectionId: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  positionX?: number;
-  positionY?: number;
-  scale?: number;
-  isVisible?: boolean;
-  customContent?: string;
-  createdAt: number;
-  updatedAt: number;
-};
-
 /**
  * Hook to get configuration for a specific section
  */
 export function useSectionConfig(sectionId: string) {
   const config = useQuery(api.sectionConfig.getSectionConfig, { sectionId });
-  return config as SectionConfig | undefined;
+  return config;
 }
 
 /**
@@ -30,16 +15,23 @@ export function useSectionConfig(sectionId: string) {
 export function useSectionImageStyle(sectionId: string) {
   const config = useSectionConfig(sectionId);
 
-  if (!(config && config.imageSrc)) {
+  if (!config?.imageSrc) {
     return null;
   }
+
+  const positionX = config.positionX ?? 50;
+  const positionY = config.positionY ?? 50;
+  const clampedX = Math.max(0, Math.min(100, positionX));
+  const clampedY = Math.max(0, Math.min(100, positionY));
+  const scale = Math.max(100, config.scale ?? 100);
 
   return {
     src: config.imageSrc,
     alt: config.imageAlt || "",
     style: {
-      objectPosition: `${config.positionX ?? 50}% ${config.positionY ?? 50}%`,
-      transform: `scale(${config.scale ?? 100}%)`,
+      objectPosition: `${clampedX}% ${clampedY}%`,
+      transform: `scale(${scale / 100})`,
+      transformOrigin: "center center",
     },
     isVisible: config.isVisible ?? true,
   };

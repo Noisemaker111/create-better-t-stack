@@ -91,9 +91,10 @@ function LeafGuardsPage() {
       icon={Leaf}
       relatedServices={[
         { name: "Gutter Installation", href: "/services/installation" },
-        { name: "Gutter Cleaning", href: "/services/cleaning" },
+        { name: "Commercial Gutters", href: "/services/commercial" },
         { name: "Gutter Repair", href: "/services/repair" },
       ]}
+      serviceSlug="leaf-guards"
       subtitle="Say goodbye to clogged gutters forever with our professional gutter protection solutions."
       title="Leaf Guards & Gutter Guards"
     />

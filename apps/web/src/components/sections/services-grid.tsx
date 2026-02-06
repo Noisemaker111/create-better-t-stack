@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -6,11 +7,11 @@ import {
   Droplets,
   Home,
   Leaf,
-  Sparkles,
   Wrench,
 } from "lucide-react";
+import { EditableSectionImage } from "@/components/admin/editable-section-image";
 import { trackCTAClick, trackPhoneClick } from "@/lib/analytics";
-import { useSectionImageStyle } from "@/lib/section-config";
+import { getGalleryImageSrc } from "@/lib/images";
 
 interface ServiceItem {
   id: string;
@@ -85,21 +86,15 @@ const services: ServiceItem[] = [
     href: "/services/commercial",
     color: "from-slate-700 to-slate-900",
   },
-  {
-    id: "services-cleaning",
-    icon: Sparkles,
-    title: "Professional Cleaning",
-    description:
-      "Keep your system at peak performance. Thorough debris removal, downspout flushing, and a full system health inspection.",
-    features: [
-      "Debris bagging",
-      "Downspout clearing",
-      "Minor adjustments included",
-    ],
-    href: "/services/cleaning",
-    color: "from-cyan-500 to-blue-500",
-  },
 ];
+
+const serviceImageById: Record<string, string> = {
+  "services-installation": getGalleryImageSrc("013"),
+  "services-guards": getGalleryImageSrc("049"),
+  "services-repair": getGalleryImageSrc("005"),
+  "services-soffit": getGalleryImageSrc("032"),
+  "services-commercial": getGalleryImageSrc("072"),
+};
 
 export default function ServicesGrid() {
   return <ServicesGridInner services={services} />;
@@ -107,7 +102,7 @@ export default function ServicesGrid() {
 
 function ServicesGridInner({ services }: { services: ServiceItem[] }) {
   return (
-    <section className="bg-white py-16 md:py-24" id="services">
+    <section className="scroll-mt-24 bg-white py-16 md:py-24" id="services">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-12 max-w-3xl">
@@ -134,8 +129,8 @@ function ServicesGridInner({ services }: { services: ServiceItem[] }) {
         {/* Bottom CTA */}
         <div className="relative mt-12 overflow-hidden rounded-2xl bg-gray-900 p-6 md:p-8 lg:p-10">
           {/* Decorative elements */}
-          <div className="absolute top-0 right-0 h-64 w-64 rounded-full bg-green-500/10 blur-[80px]" />
-          <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-blue-500/10 blur-[80px]" />
+          <div className="pointer-events-none absolute top-0 right-0 h-64 w-64 rounded-full bg-green-500/10 blur-[80px]" />
+          <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-blue-500/10 blur-[80px]" />
 
           <div className="relative z-10 flex flex-col items-center justify-between gap-10 lg:flex-row">
             <div className="max-w-xl text-center lg:text-left">
@@ -148,15 +143,16 @@ function ServicesGridInner({ services }: { services: ServiceItem[] }) {
               </p>
             </div>
             <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-              <a
+              <Link
                 className="inline-flex items-center justify-center rounded-xl bg-[#1eeb00] px-10 py-5 font-black text-black text-lg shadow-lg transition-all hover:bg-[#19c600] active:scale-95"
-                href="#quote"
+                hash="quote"
                 onClick={() =>
                   trackCTAClick("quote_section", "Book Free Consultation")
                 }
+                to="/"
               >
                 Book Free Consultation
-              </a>
+              </Link>
               <a
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/10 bg-white/5 px-10 py-5 font-bold text-lg text-white transition-all hover:bg-white/10"
                 href="tel:+12485617790"
@@ -173,27 +169,23 @@ function ServicesGridInner({ services }: { services: ServiceItem[] }) {
 }
 
 function ServiceCard({ service }: { service: ServiceItem }) {
-  const imageConfig = useSectionImageStyle(service.id);
-  const imageSrc =
-    imageConfig?.src ||
-    `/images/gallery/${service.id === "services-installation" ? "013" : service.id === "services-guards" ? "049" : service.id === "services-repair" ? "005" : service.id === "services-soffit" ? "032" : service.id === "services-commercial" ? "072" : "001"}.jpg`;
+  const imageSrc = serviceImageById[service.id] || "/images/gallery/001.jpg";
 
   return (
-    <a
+    <Link
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-100 hover:shadow-xl"
-      href={service.href}
+      to={service.href as any}
     >
       {/* Image */}
       <div className="relative h-40 overflow-hidden">
-        <img
-          alt={service.title}
-          className="relative z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        <EditableSectionImage
+          className="absolute inset-0 z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          fallbackAlt={service.title}
+          fallbackSrc={imageSrc}
+          hideOnError
           loading="lazy"
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-          src={imageSrc}
-          style={imageConfig?.style}
+          sectionId={service.id}
+          usagePath="/"
         />
         {/* Fallback gradient - only visible if image fails */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-200 to-green-300" />
@@ -238,6 +230,6 @@ function ServiceCard({ service }: { service: ServiceItem }) {
 
       {/* Subtle Gradient Hover */}
       <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-green-50/0 via-green-50/0 to-green-50 opacity-0 transition-opacity group-hover:opacity-100" />
-    </a>
+    </Link>
   );
 }

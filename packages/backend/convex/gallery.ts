@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { requireAdminUser } from "./adminGuard";
 
 // ============ QUERIES ============
 
@@ -82,6 +83,7 @@ export const createGalleryItem = mutation({
     sortOrder: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
 
     // Get the maximum sortOrder to append to end
@@ -125,6 +127,7 @@ export const updateGalleryItem = mutation({
     isVisible: v.optional(v.boolean()),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const { id, ...updates } = args;
     const now = Date.now();
 
@@ -143,6 +146,7 @@ export const updateGalleryItem = mutation({
 export const deleteGalleryItem = mutation({
   args: { id: v.id("galleryItems") },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     await ctx.db.delete(args.id);
   },
 });
@@ -158,6 +162,7 @@ export const reorderGalleryItem = mutation({
     newSortOrder: v.number(),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const { itemId, newSortOrder } = args;
 
     // Get the item being moved
@@ -233,6 +238,7 @@ export const batchReorderGalleryItems = mutation({
     ),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
 
     for (const item of args.items) {
@@ -260,6 +266,7 @@ export const initializeGalleryFromStatic = mutation({
     ),
   },
   handler: async (ctx, args) => {
+    await requireAdminUser(ctx);
     const now = Date.now();
 
     // Delete existing items

@@ -1,12 +1,19 @@
+import { ConvexBetterAuthProvider } from "@convex-dev/better-auth/react";
 import type { ConvexQueryClient } from "@convex-dev/react-query";
 import { Databuddy } from "@databuddy/sdk/react";
 import type { QueryClient } from "@tanstack/react-query";
-import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
-import { ConvexProvider } from "convex/react";
+import {
+  createRootRouteWithContext,
+  Outlet,
+  useRouterState,
+} from "@tanstack/react-router";
 
 import { Toaster } from "@/components/ui/sonner";
+import { authClient } from "@/lib/auth-client";
+import { BRAND } from "@/lib/images";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import QuoteFormContent from "../components/sections/quote-form-content";
 import appCss from "../index.css?url";
 
 export interface RouterAppContext {
@@ -76,7 +83,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
       {
         rel: "icon",
         type: "image/png",
-        href: "/images/logo.png",
+        href: BRAND.logo,
       },
       {
         rel: "stylesheet",
@@ -118,8 +125,16 @@ function ErrorComponent() {
 
 function RootDocument() {
   const { convexQueryClient } = Route.useRouteContext();
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
+  const shouldShowGlobalQuote = pathname !== "/" && pathname !== "/contact";
+
   return (
-    <ConvexProvider client={convexQueryClient.convexClient}>
+    <ConvexBetterAuthProvider
+      authClient={authClient}
+      client={convexQueryClient.convexClient}
+    >
       {/* Local Business Structured Data */}
       <script
         dangerouslySetInnerHTML={{
@@ -309,9 +324,38 @@ function RootDocument() {
         <main className="flex-1">
           <Outlet />
         </main>
+        {shouldShowGlobalQuote ? <GlobalQuoteSection /> : null}
         <Footer />
       </div>
       <Toaster richColors />
-    </ConvexProvider>
+    </ConvexBetterAuthProvider>
+  );
+}
+
+function GlobalQuoteSection() {
+  return (
+    <section
+      className="scroll-mt-24 bg-gradient-to-br from-green-100 via-white to-green-50 py-14 md:py-20"
+      id="quote"
+    >
+      <div className="container mx-auto px-4">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-green-200/60 bg-white/95 p-6 shadow-xl md:p-10">
+          <div className="mb-8 text-center">
+            <p className="font-semibold text-green-700 text-sm uppercase tracking-[0.16em]">
+              Free Estimate
+            </p>
+            <h2 className="mt-2 font-bold text-3xl text-green-950 md:text-4xl">
+              Tell Us About Your Project
+            </h2>
+            <p className="mt-2 text-gray-600">
+              Share a few details and we will call you back with next steps.
+            </p>
+          </div>
+          <div className="mx-auto max-w-2xl rounded-2xl border border-gray-100 bg-white p-5 shadow-sm md:p-7">
+            <QuoteFormContent />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

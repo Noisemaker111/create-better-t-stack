@@ -33,9 +33,9 @@ const reasons = [
   },
   {
     icon: Clock,
-    title: "Fast & Reliable",
+    title: "Reliable Scheduling",
     description:
-      "Free estimate within a week, installation the next week. We respect your time and keep our appointments. No long waits or missed calls.",
+      "We respect your time, communicate clearly, and keep appointments. You will know what to expect at each step.",
   },
 ];
 
@@ -78,9 +78,9 @@ export default function WhyChooseUs() {
         {/* Quote Banner */}
         <div className="mt-16 rounded-2xl bg-gradient-to-r from-green-700 to-green-800 p-8 text-center text-white md:p-12">
           <blockquote className="mb-4 font-medium text-2xl italic md:text-3xl">
-            "We treat every home like it's our own"
+            "Clear recommendations. Solid work. No pressure."
           </blockquote>
-          <p className="text-green-200">— Mike & Son, BTG Gutters</p>
+          <p className="text-green-200">- BTG Gutters</p>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, Clock, Phone, Shield, Star } from "lucide-react";
 import { trackCTAClick, trackPhoneClick } from "@/lib/analytics";
 
@@ -22,8 +23,8 @@ export default function CTABanner() {
               <span className="text-[#1eeb00]">The Next Storm</span>
             </h2>
             <p className="font-medium text-green-100 text-xl leading-relaxed">
-              Join 40+ protected Michigan homeowners. Get your free, no-pressure
-              estimate today and secure your spot for next week.
+              Get a straight answer on what your home needs. We provide free,
+              no-pressure estimates with clear pricing and scheduling.
             </p>
 
             {/* Trust Badges */}
@@ -45,14 +46,15 @@ export default function CTABanner() {
 
           {/* CTAs */}
           <div className="flex w-full flex-col gap-4 sm:flex-row lg:w-auto">
-            <a
+            <Link
               className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#1eeb00] px-10 py-6 font-black text-black text-xl shadow-xl transition-all hover:bg-[#19c600] active:scale-95"
-              href="#quote"
+              hash="quote"
               onClick={() => trackCTAClick("cta_banner", "Get Free Quote")}
+              to="/"
             >
               Get Free Quote
               <ArrowRight className="h-6 w-6" />
-            </a>
+            </Link>
             <a
               className="inline-flex items-center justify-center gap-3 rounded-2xl border-2 border-white/20 bg-white/5 px-10 py-6 font-bold text-white text-xl backdrop-blur-md transition-all hover:bg-white/10"
               href={PHONE_LINK}

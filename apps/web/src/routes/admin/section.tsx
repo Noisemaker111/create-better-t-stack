@@ -2,13 +2,13 @@ import { api } from "@btgwebsite-new/backend/convex/_generated/api";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "convex/react";
 import {
+  Check,
   Eye,
   EyeOff,
   Image as ImageIcon,
   Maximize2,
   Move,
   RotateCcw,
-  Save,
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -94,12 +94,6 @@ const SECTIONS: SectionDefinition[] = [
     description: "Commercial gutters service card",
     category: "Services",
   },
-  {
-    id: "services-cleaning",
-    name: "Service: Cleaning",
-    description: "Gutter cleaning service card",
-    category: "Services",
-  },
   // Project Showcase
   {
     id: "project-1",
@@ -125,13 +119,25 @@ const SECTIONS: SectionDefinition[] = [
     description: "Featured project image 4",
     category: "Projects",
   },
+  {
+    id: "about-story",
+    name: "About Story Image",
+    description: "Main image on the About page",
+    category: "About",
+  },
 ];
 
 // Get unique categories
 const CATEGORIES = [...new Set(SECTIONS.map((s) => s.category))];
 
 function SectionEditorPage() {
+  const user = useQuery(api.auth.getCurrentUser);
+  const access = useQuery(api.adminAccess.isCurrentUserAllowed);
+
   const [selectedSectionId, setSelectedSectionId] = useState<string>("hero");
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    CATEGORIES[0] ?? ""
+  );
   const [localConfig, setLocalConfig] = useState<Partial<SectionConfig>>({
     positionX: 50,
     positionY: 50,
@@ -144,11 +150,14 @@ function SectionEditorPage() {
   const [previewUrl, setPreviewUrl] = useState<string>("");
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
+  // Ref for synchronous access during mouse events (avoids stale closure)
+  const isDraggingRef = useRef(false);
 
   // Fetch current config
   const currentConfig = useQuery(api.sectionConfig.getSectionConfig, {
     sectionId: selectedSectionId,
   });
+  const allSectionConfigs = useQuery(api.sectionConfig.getAllSectionConfigs);
 
   // Mutations
   const upsertMutation = useMutation(api.sectionConfig.upsertSectionConfig);
@@ -177,14 +186,19 @@ function SectionEditorPage() {
         scale: 100,
         isVisible: true,
       });
+      setPreviewUrl("");
       setHasChanges(false);
     }
   }, [currentConfig, selectedSectionId]);
 
   // Handle image selection
-  const handleImageSelect = (src: string) => {
+  const handleImageSelect = (src: string, alt?: string) => {
     setPreviewUrl(src);
-    setLocalConfig((prev) => ({ ...prev, imageSrc: src }));
+    setLocalConfig((prev) => ({
+      ...prev,
+      imageSrc: src,
+      imageAlt: alt ?? prev.imageAlt,
+    }));
     setHasChanges(true);
   };
 
@@ -192,6 +206,8 @@ function SectionEditorPage() {
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
     if (!imageContainerRef.current) return;
 
+    // Update ref immediately for synchronous access in mousemove
+    isDraggingRef.current = true;
     setIsDragging(true);
     setDragStart({ x: e.clientX, y: e.clientY });
   }, []);
@@ -199,7 +215,8 @@ function SectionEditorPage() {
   // Handle mouse move (dragging)
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
-      if (!(isDragging && imageContainerRef.current)) return;
+      // Use ref for synchronous check instead of state (avoids stale closure)
+      if (!(isDraggingRef.current && imageContainerRef.current)) return;
 
       const deltaX = e.clientX - dragStart.x;
       const deltaY = e.clientY - dragStart.y;
@@ -226,16 +243,18 @@ function SectionEditorPage() {
 
       setDragStart({ x: e.clientX, y: e.clientY });
     },
-    [isDragging, dragStart, localConfig.positionX, localConfig.positionY]
+    [dragStart, localConfig.positionX, localConfig.positionY]
   );
 
   // Handle drag end
   const handleMouseUp = useCallback(() => {
-    if (isDragging) {
+    // Check ref instead of state for synchronous access
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
       setIsDragging(false);
       setHasChanges(true);
     }
-  }, [isDragging]);
+  }, []);
 
   // Handle scale change
   const handleScaleChange = (value: number) => {
@@ -277,6 +296,15 @@ function SectionEditorPage() {
 
   // Get current section definition
   const currentSection = SECTIONS.find((s) => s.id === selectedSectionId);
+  const sectionsInCategory = SECTIONS.filter(
+    (section) => section.category === selectedCategory
+  );
+  const sectionPreviewSrcById = new Map(
+    (allSectionConfigs ?? []).map((config) => [
+      config.sectionId,
+      config.imageSrc,
+    ])
+  );
 
   // Available images (from gallery)
   const galleryItems = useQuery(api.gallery.getAllGalleryItems);
@@ -285,6 +313,51 @@ function SectionEditorPage() {
       src: item.src,
       title: item.title,
     })) || [];
+
+  const getPreviewStyle = ({
+    positionX,
+    positionY,
+    scale,
+  }: {
+    positionX: number;
+    positionY: number;
+    scale: number;
+  }) => {
+    const clampedX = Math.max(0, Math.min(100, positionX));
+    const clampedY = Math.max(0, Math.min(100, positionY));
+    const clampedScale = Math.max(100, scale);
+
+    return {
+      objectPosition: `${clampedX}% ${clampedY}%`,
+      transform: `scale(${clampedScale / 100})`,
+      transformOrigin: "center center",
+    } as const;
+  };
+
+  if (user === undefined || access === undefined) {
+    return (
+      <div className="container mx-auto flex min-h-[60vh] items-center justify-center px-4 py-12">
+        <div className="text-muted-foreground">Checking authentication...</div>
+      </div>
+    );
+  }
+
+  if (!(user && access.allowed)) {
+    return (
+      <div className="container mx-auto flex min-h-[60vh] items-center justify-center px-4 py-12">
+        <div className="w-full max-w-lg rounded-2xl border bg-card p-6 shadow-sm">
+          <h1 className="font-bold text-2xl">Admin access required</h1>
+          <p className="mt-2 text-muted-foreground">
+            Please sign in at{" "}
+            <a className="underline" href="/admin">
+              /admin
+            </a>{" "}
+            with an allowlisted account.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto py-8">
@@ -309,8 +382,8 @@ function SectionEditorPage() {
             Initialize Defaults
           </Button>
           <Button disabled={!hasChanges} onClick={handleSave}>
-            <Save className="mr-2 h-4 w-4" />
-            Save Changes
+            <Check className="mr-2 h-4 w-4" />
+            Set Image
           </Button>
         </div>
       </div>
@@ -325,12 +398,13 @@ function SectionEditorPage() {
             <div className="mb-4">
               <Select
                 onValueChange={(value: string) => {
+                  setSelectedCategory(value);
                   const firstInCategory = SECTIONS.find(
                     (s) => s.category === value
                   );
                   if (firstInCategory) setSelectedSectionId(firstInCategory.id);
                 }}
-                value={SECTIONS.find((s) => s.category)?.category}
+                value={selectedCategory}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Select category" />
@@ -347,9 +421,7 @@ function SectionEditorPage() {
 
             {/* Section List */}
             <div className="max-h-[60vh] space-y-2 overflow-y-auto">
-              {SECTIONS.filter(
-                (s) => !CATEGORIES || s.category === CATEGORIES[0]
-              ).map((section) => (
+              {sectionsInCategory.map((section) => (
                 <button
                   className={`w-full rounded-lg border p-3 text-left transition-all ${
                     selectedSectionId === section.id
@@ -359,9 +431,26 @@ function SectionEditorPage() {
                   key={section.id}
                   onClick={() => setSelectedSectionId(section.id)}
                 >
-                  <div className="font-medium">{section.name}</div>
-                  <div className="text-muted-foreground text-xs">
-                    {section.description}
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-14 flex-shrink-0 overflow-hidden rounded bg-muted">
+                      {sectionPreviewSrcById.get(section.id) ? (
+                        <img
+                          alt={section.name}
+                          className="h-full w-full object-cover"
+                          src={sectionPreviewSrcById.get(section.id)}
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-muted-foreground text-xs">
+                          Empty
+                        </div>
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="truncate font-medium">{section.name}</div>
+                      <div className="truncate text-muted-foreground text-xs">
+                        {section.description}
+                      </div>
+                    </div>
                   </div>
                 </button>
               ))}
@@ -422,8 +511,11 @@ function SectionEditorPage() {
                     }}
                     src={previewUrl}
                     style={{
-                      objectPosition: `${localConfig.positionX || 50}% ${localConfig.positionY || 50}%`,
-                      transform: `scale(${localConfig.scale || 100}%)`,
+                      ...getPreviewStyle({
+                        positionX: localConfig.positionX || 50,
+                        positionY: localConfig.positionY || 50,
+                        scale: localConfig.scale || 100,
+                      }),
                       transition: isDragging
                         ? "none"
                         : "transform 0.2s ease-out",
@@ -490,10 +582,12 @@ function SectionEditorPage() {
             <div className="mt-4 rounded-lg bg-muted p-3 text-sm">
               <p className="mb-1 font-medium">Instructions:</p>
               <ul className="space-y-1 text-muted-foreground">
-                <li>• Click and drag on the image to pan/position</li>
-                <li>• Use the slider to zoom in/out</li>
-                <li>• Select different images from the sidebar</li>
-                <li>• Click "Save Changes" when done</li>
+                <li>• Click a section slot from the left list</li>
+                <li>• Pick any image from the gallery list on the right</li>
+                <li>
+                  • Click and drag in the preview to position with your cursor
+                </li>
+                <li>• Use zoom slider, then click "Set Image"</li>
               </ul>
             </div>
           </div>
@@ -528,7 +622,7 @@ function SectionEditorPage() {
                       : "hover:border-primary/50"
                   }`}
                   key={img.src}
-                  onClick={() => handleImageSelect(img.src)}
+                  onClick={() => handleImageSelect(img.src, img.title)}
                 >
                   <div className="flex items-center gap-3 p-2">
                     <div className="h-12 w-16 flex-shrink-0 overflow-hidden rounded bg-muted">
@@ -542,7 +636,10 @@ function SectionEditorPage() {
                       />
                     </div>
                     <div className="flex-1 truncate text-left text-sm">
-                      {img.title}
+                      <div className="truncate">{img.title}</div>
+                      <div className="truncate font-mono text-muted-foreground text-xs">
+                        {img.src}
+                      </div>
                     </div>
                   </div>
                 </button>
@@ -575,7 +672,8 @@ function SectionEditorPage() {
         <div className="fixed bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full bg-primary px-6 py-3 text-primary-foreground shadow-lg">
           <span>You have unsaved changes</span>
           <Button onClick={handleSave} size="sm" variant="secondary">
-            Save Now
+            <Check className="mr-1 h-3.5 w-3.5" />
+            Set Image
           </Button>
         </div>
       )}

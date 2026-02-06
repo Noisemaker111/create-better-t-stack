@@ -36,7 +36,8 @@ const PHONE_NUMBER = "(248) 561-7790";
 const PHONE_LINK = "tel:+12485617790";
 const EMAIL = "btggutters@gmail.com";
 const EMAIL_LINK = "mailto:btggutters@gmail.com";
-const GOOGLE_MAPS_LINK = "https://goo.gl/maps/rrgMHbdWMzNdDjvk9";
+const GOOGLE_MAPS_LINK =
+  "https://www.google.com/maps/place/BTG+Gutters/@42.3289327,-83.3460617,15z/data=!4m6!3m5!1s0x883b4d8d12aea83b:0xb2f3bb14fe4ddd36!8m2!3d42.3289327!4d-83.3460617!16s%2Fg%2F11syf4sksd";
 const FACEBOOK_LINK = "https://www.facebook.com/BTGgutters/";
 
 export const Route = createFileRoute("/contact")({
@@ -310,7 +311,7 @@ function ContactPage() {
                       {EMAIL}
                     </a>
                     <p className="text-gray-600 text-sm">
-                      We'll respond within 24 hours
+                      We will follow up as soon as possible
                     </p>
                   </div>
                 </div>
@@ -415,8 +416,8 @@ function ContactPage() {
                       Message Sent!
                     </h3>
                     <p className="text-gray-600">
-                      We'll get back to you within 24 hours. For immediate
-                      assistance, call us at{" "}
+                      Thanks for reaching out. For immediate assistance, call us
+                      at{" "}
                       <a
                         className="font-semibold text-green-700"
                         href={PHONE_LINK}
@@ -473,7 +474,7 @@ function ContactPage() {
                                   field.handleChange(e.target.value)
                                 }
                                 onFocus={() => handleFieldFocus("name")}
-                                placeholder="John Smith"
+                                placeholder="Your Name Here"
                                 required
                                 type="text"
                                 value={field.state.value}
@@ -729,8 +730,9 @@ function ContactPage() {
 
                       {/* Consent disclaimer */}
                       <p className="text-gray-500 text-xs">
-                        By submitting this form, you consent to receive calls
-                        and text messages from BTG Gutters.
+                        By submitting, you agree BTG Gutters may contact you by
+                        call or text about your project. Text messaging is
+                        welcome.
                       </p>
 
                       <form.Subscribe

@@ -16,6 +16,10 @@ export const Route = createFileRoute("/")({
 });
 
 function HomeComponent() {
+  return <HomePageContent />;
+}
+
+export function HomePageContent() {
   return (
     <>
       {/* Hero Section - Above the fold with dual CTA */}

@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { api } from "@btgwebsite-new/backend/convex/_generated/api";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useQuery } from "convex/react";
 import { ChevronDown, Menu, Phone, Star, X } from "lucide-react";
 import { useState } from "react";
 import {
@@ -8,6 +10,8 @@ import {
   trackPhoneClick,
   trackServicesDropdownOpen,
 } from "@/lib/analytics";
+import { authClient } from "@/lib/auth-client";
+import { BRAND } from "@/lib/images";
 
 const PHONE_NUMBER = "(248) 561-7790";
 const PHONE_LINK = "tel:+12485617790";
@@ -30,8 +34,17 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const { data: session } = authClient.useSession();
+  const signedInEmail = session?.user?.email ?? null;
+  const adminAccess = useQuery(
+    api.adminAccess.isCurrentUserAllowed,
+    signedInEmail ? {} : "skip"
+  );
+  const isAdmin = adminAccess?.allowed ?? false;
+  const loginStatusLabel = isAdmin ? "Admin Logged In" : "Logged In";
 
   return (
     <>
@@ -48,6 +61,11 @@ export default function Header() {
             <span>Serving Garden City, MI & Surrounding Areas</span>
           </div>
           <div className="flex items-center gap-4">
+            {signedInEmail ? (
+              <span className="rounded-full bg-white/10 px-3 py-1 font-medium text-white text-xs">
+                {loginStatusLabel}
+              </span>
+            ) : null}
             <span className="text-green-300">
               Mon-Fri: 8AM-9PM | Sat-Sun: 9AM-8PM
             </span>
@@ -72,7 +90,7 @@ export default function Header() {
               <img
                 alt="BTG Gutters Logo"
                 className="h-10 w-auto lg:h-12"
-                src="/images/logo.png"
+                src={BRAND.logo}
               />
               <div className="flex flex-col">
                 <span className="font-bold text-green-900 text-lg lg:text-xl">
@@ -98,7 +116,11 @@ export default function Header() {
                       onMouseLeave={() => setServicesOpen(false)}
                     >
                       <button
-                        className="flex items-center gap-1 rounded-lg px-4 py-2 font-medium text-green-900 transition-colors hover:bg-green-50 hover:text-green-700"
+                        className={`flex items-center gap-1 rounded-lg px-4 py-2 font-medium transition-colors hover:bg-green-50 hover:text-green-700 ${
+                          location.pathname.startsWith("/services")
+                            ? "bg-green-50 text-green-700"
+                            : "text-green-900"
+                        }`}
                         onClick={() => {
                           setServicesOpen(!servicesOpen);
                           if (!servicesOpen) {
@@ -121,30 +143,31 @@ export default function Header() {
                         }`}
                       >
                         {services.map((service) => (
-                          <a
-                            className="block px-4 py-2 text-green-800 text-sm transition-colors hover:bg-green-50 hover:text-green-900"
-                            href={service.href}
+                          <Link
+                            className={`block px-4 py-2 text-sm transition-colors hover:bg-green-50 hover:text-green-900 ${
+                              location.pathname === service.href
+                                ? "bg-green-50 font-semibold text-green-900"
+                                : "text-green-800"
+                            }`}
                             key={service.name}
+                            to={service.href as any}
                           >
                             {service.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
-                  ) : link.href === "/" ? (
+                  ) : (
                     <Link
-                      className="rounded-lg px-4 py-2 font-medium text-green-900 transition-colors hover:bg-green-50 hover:text-green-700"
-                      to="/"
+                      className={`rounded-lg px-4 py-2 font-medium transition-colors hover:bg-green-50 hover:text-green-700 ${
+                        location.pathname === link.href
+                          ? "bg-green-50 text-green-700"
+                          : "text-green-900"
+                      }`}
+                      to={link.href as any}
                     >
                       {link.name}
                     </Link>
-                  ) : (
-                    <a
-                      className="rounded-lg px-4 py-2 font-medium text-green-900 transition-colors hover:bg-green-50 hover:text-green-700"
-                      href={link.href}
-                    >
-                      {link.name}
-                    </a>
                   )}
                 </div>
               ))}
@@ -152,6 +175,11 @@ export default function Header() {
 
             {/* Desktop CTA */}
             <div className="hidden items-center gap-3 lg:flex">
+              {signedInEmail ? (
+                <span className="rounded-full bg-green-100 px-3 py-1 font-medium text-[11px] text-green-900">
+                  {loginStatusLabel}
+                </span>
+              ) : null}
               <a
                 className="flex items-center gap-2 font-semibold text-green-800 transition-colors hover:text-green-600"
                 href={PHONE_LINK}
@@ -160,17 +188,23 @@ export default function Header() {
                 <Phone className="h-5 w-5" />
                 {PHONE_NUMBER}
               </a>
-              <a
+              <Link
                 className="inline-flex h-10 items-center justify-center rounded-lg bg-[#1eeb00] px-6 font-semibold text-black transition-colors hover:bg-[#19c600]"
-                href="/#quote"
+                hash="quote"
                 onClick={() => trackCTAClick("header", "Get Free Quote")}
+                to="/"
               >
                 Get Free Quote
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-3 lg:hidden">
+              {signedInEmail ? (
+                <span className="rounded-full bg-green-100 px-2 py-1 font-medium text-[10px] text-green-900">
+                  {isAdmin ? "Admin" : "Logged in"}
+                </span>
+              ) : null}
               <a
                 aria-label="Call us"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white"
@@ -211,7 +245,11 @@ export default function Header() {
                   {link.hasDropdown ? (
                     <div>
                       <button
-                        className="flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium text-green-900 transition-colors hover:bg-green-50"
+                        className={`flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium transition-colors hover:bg-green-50 ${
+                          location.pathname.startsWith("/services")
+                            ? "bg-green-50 text-green-700"
+                            : "text-green-900"
+                        }`}
                         onClick={() => setServicesOpen(!servicesOpen)}
                       >
                         {link.name}
@@ -222,37 +260,37 @@ export default function Header() {
                       {servicesOpen && (
                         <div className="mt-1 ml-4 flex flex-col gap-1 border-green-200 border-l-2 pl-4">
                           {services.map((service) => (
-                            <a
-                              className="rounded-lg px-4 py-2 text-green-700 text-sm transition-colors hover:bg-green-50 hover:text-green-900"
-                              href={service.href}
+                            <Link
+                              className={`rounded-lg px-4 py-2 text-sm transition-colors hover:bg-green-50 hover:text-green-900 ${
+                                location.pathname === service.href
+                                  ? "bg-green-50 font-semibold text-green-900"
+                                  : "text-green-700"
+                              }`}
                               key={service.name}
                               onClick={() => {
                                 trackNavClick(service.name, "mobile_menu");
                                 setMobileMenuOpen(false);
                               }}
+                              to={service.href as any}
                             >
                               {service.name}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       )}
                     </div>
-                  ) : link.href === "/" ? (
+                  ) : (
                     <Link
-                      className="block rounded-lg px-4 py-3 font-medium text-green-900 transition-colors hover:bg-green-50"
+                      className={`block rounded-lg px-4 py-3 font-medium transition-colors hover:bg-green-50 ${
+                        location.pathname === link.href
+                          ? "bg-green-50 text-green-700"
+                          : "text-green-900"
+                      }`}
                       onClick={() => setMobileMenuOpen(false)}
-                      to="/"
+                      to={link.href as any}
                     >
                       {link.name}
                     </Link>
-                  ) : (
-                    <a
-                      className="block rounded-lg px-4 py-3 font-medium text-green-900 transition-colors hover:bg-green-50"
-                      href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </a>
                   )}
                 </div>
               ))}
@@ -260,15 +298,17 @@ export default function Header() {
 
             {/* Mobile CTA */}
             <div className="mt-4 border-green-100 border-t pt-4">
-              <a
+              <Link
                 className="flex w-full items-center justify-center rounded-lg bg-[#1eeb00] py-4 font-semibold text-black text-lg transition-colors hover:bg-[#19c600]"
-                href="/#quote"
-                onClick={() =>
-                  trackCTAClick("hero_mobile", "Get Your Free Quote")
-                }
+                hash="quote"
+                onClick={() => {
+                  trackCTAClick("hero_mobile", "Get Your Free Quote");
+                  setMobileMenuOpen(false);
+                }}
+                to="/"
               >
                 Get Your Free Quote
-              </a>
+              </Link>
             </div>
           </div>
         </div>

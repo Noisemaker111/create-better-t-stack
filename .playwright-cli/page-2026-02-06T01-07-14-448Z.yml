@@ -1,0 +1,319 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - img [ref=e8]
+          - generic [ref=e10]: "5.0"
+          - generic [ref=e11]: "| 40+ Reviews"
+        - generic [ref=e12]: "|"
+        - generic [ref=e13]: Serving Garden City, MI & Surrounding Areas
+      - generic [ref=e14]:
+        - generic [ref=e15]: "Mon-Fri: 8AM-9PM | Sat-Sun: 9AM-8PM"
+        - link "(248) 561-7790" [ref=e16] [cursor=pointer]:
+          - /url: tel:+12485617790
+          - img [ref=e17]
+          - text: (248) 561-7790
+    - banner [ref=e19]:
+      - generic [ref=e21]:
+        - link "BTG Gutters Logo BTG Gutters Garden City, MI" [ref=e22] [cursor=pointer]:
+          - /url: /
+          - img "BTG Gutters Logo" [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]: BTG Gutters
+            - generic [ref=e26]: Garden City, MI
+        - navigation [ref=e27]:
+          - link "Home" [ref=e29] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e31] [cursor=pointer]:
+            - /url: /about
+          - button "Services" [ref=e34]:
+            - text: Services
+            - img [ref=e35]
+          - link "Gallery" [ref=e38] [cursor=pointer]:
+            - /url: /gallery
+          - link "Service Areas" [ref=e40] [cursor=pointer]:
+            - /url: /service-areas
+          - link "Contact" [ref=e42] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e43]:
+          - link "(248) 561-7790" [ref=e44] [cursor=pointer]:
+            - /url: tel:+12485617790
+            - img [ref=e45]
+            - text: (248) 561-7790
+          - link "Get Free Quote" [ref=e47] [cursor=pointer]:
+            - /url: /#quote
+    - main [ref=e48]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - img [ref=e54]
+          - heading "Gutter Installation & Replacement" [level=1] [ref=e57]
+          - paragraph [ref=e58]: Professional seamless gutter installation that protects your home for years to come.
+          - paragraph [ref=e59]: Whether you're building a new home or replacing worn-out gutters, BTG Gutters delivers expert installation with premium materials. Our seamless aluminum gutters are custom-fabricated on-site for a perfect fit.
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - img [ref=e62]
+              - generic [ref=e64]: 100% Insured
+            - generic [ref=e65]:
+              - img [ref=e66]
+              - generic [ref=e69]: 4-Year Warranty
+            - generic [ref=e70]:
+              - img [ref=e71]
+              - generic [ref=e73]: 5.0 Rating
+          - generic [ref=e74]:
+            - link "Get Free Estimate" [ref=e75] [cursor=pointer]:
+              - /url: /#quote
+            - link "(248) 561-7790" [ref=e76] [cursor=pointer]:
+              - /url: tel:+12485617790
+              - img [ref=e77]
+              - text: (248) 561-7790
+        - generic [ref=e80]:
+          - heading "What's Included" [level=3] [ref=e81]
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - img [ref=e84]
+              - generic [ref=e87]: Custom-fabricated seamless aluminum gutters
+            - generic [ref=e88]:
+              - img [ref=e89]
+              - generic [ref=e92]: 5-inch or 6-inch gutter options
+            - generic [ref=e93]:
+              - img [ref=e94]
+              - generic [ref=e97]: 50+ color choices to match your home
+            - generic [ref=e98]:
+              - img [ref=e99]
+              - generic [ref=e102]: Concealed hangers every 12-18 inches
+            - generic [ref=e103]:
+              - img [ref=e104]
+              - generic [ref=e107]: High-quality aluminum downspouts
+            - generic [ref=e108]:
+              - img [ref=e109]
+              - generic [ref=e112]: Proper pitch for optimal drainage
+            - generic [ref=e113]:
+              - img [ref=e114]
+              - generic [ref=e117]: Complete cleanup after installation
+            - generic [ref=e118]:
+              - img [ref=e119]
+              - generic [ref=e122]: 4-year warranty on materials and labor
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - heading "Why Choose BTG Gutters?" [level=2] [ref=e126]
+          - paragraph [ref=e127]: Experience the difference of working with a family-owned company that truly cares.
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - heading "Seamless Design" [level=3] [ref=e130]
+            - paragraph [ref=e131]: No seams means fewer leaks. Our gutters are custom-fabricated on-site for your exact specifications.
+          - generic [ref=e132]:
+            - heading "Superior Materials" [level=3] [ref=e133]
+            - paragraph [ref=e134]: We use only high-grade aluminum that resists rust, warping, and weather damage for lasting performance.
+          - generic [ref=e135]:
+            - heading "Expert Installation" [level=3] [ref=e136]
+            - paragraph [ref=e137]: With 22+ years of combined experience, we know exactly how to install gutters that perform flawlessly.
+          - generic [ref=e138]:
+            - heading "Perfect Fit" [level=3] [ref=e139]
+            - paragraph [ref=e140]: Every home is different. We measure precisely and fabricate gutters that fit your home perfectly.
+          - generic [ref=e141]:
+            - heading "Proper Drainage" [level=3] [ref=e142]
+            - paragraph [ref=e143]: We ensure correct pitch and downspout placement to move water away from your foundation effectively.
+          - generic [ref=e144]:
+            - heading "Lasting Value" [level=3] [ref=e145]
+            - paragraph [ref=e146]: Quality gutters add curb appeal and protect your biggest investment - your home.
+      - generic [ref=e148]:
+        - heading "Our Simple Process" [level=2] [ref=e150]
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]: "1"
+            - heading "Contact Us" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Call or fill out our form
+          - generic [ref=e157]:
+            - generic [ref=e158]: "2"
+            - heading "Free Estimate" [level=3] [ref=e159]
+            - paragraph [ref=e160]: We assess your needs
+          - generic [ref=e161]:
+            - generic [ref=e162]: "3"
+            - heading "Schedule" [level=3] [ref=e163]
+            - paragraph [ref=e164]: Pick a convenient time
+          - generic [ref=e165]:
+            - generic [ref=e166]: "4"
+            - heading "Completion" [level=3] [ref=e167]
+            - paragraph [ref=e168]: Quality work, clean site
+      - generic [ref=e170]:
+        - heading "Frequently Asked Questions" [level=2] [ref=e172]
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - heading "How long does gutter installation take?" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Most residential gutter installations are completed in one day. Larger homes or complex rooflines may take 1-2 days. We'll give you an accurate timeline during your free estimate.
+          - generic [ref=e178]:
+            - heading "What colors are available?" [level=3] [ref=e179]
+            - paragraph [ref=e180]: We offer over 50 color options to match any home exterior. Popular choices include white, brown, bronze, black, and various shades of gray. We bring color samples to your estimate.
+          - generic [ref=e181]:
+            - heading "Should I choose 5-inch or 6-inch gutters?" [level=3] [ref=e182]
+            - paragraph [ref=e183]: It depends on your roof size and local rainfall. 5-inch gutters work well for most homes, but 6-inch gutters handle more water and are better for larger roofs or areas with heavy rain. We'll recommend the right size for your home.
+          - generic [ref=e184]:
+            - heading "What happens to my old gutters?" [level=3] [ref=e185]
+            - paragraph [ref=e186]: We remove and dispose of all old gutters, hangers, and downspouts. Your property is left clean and debris-free.
+          - generic [ref=e187]:
+            - heading "Do you offer financing?" [level=3] [ref=e188]
+            - paragraph [ref=e189]: We accept all major credit cards, cash, check, Venmo, Zelle, and Apple Pay. Contact us to discuss payment options for your project.
+      - generic [ref=e191]:
+        - heading "Related Services" [level=3] [ref=e192]
+        - generic [ref=e193]:
+          - link "Leaf Guards" [ref=e194] [cursor=pointer]:
+            - /url: /services/leaf-guards
+          - link "Gutter Repair" [ref=e195] [cursor=pointer]:
+            - /url: /services/repair
+          - link "Soffit & Fascia" [ref=e196] [cursor=pointer]:
+            - /url: /services/soffit-fascia
+      - generic [ref=e202]:
+        - generic [ref=e203]:
+          - heading "Don't Wait For The Next Storm" [level=2] [ref=e204]:
+            - text: Don't Wait For
+            - text: The Next Storm
+          - paragraph [ref=e205]: Join 40+ protected Michigan homeowners. Get your free, no-pressure estimate today and secure your spot for next week.
+          - generic [ref=e206]:
+            - generic [ref=e207]:
+              - img [ref=e208]
+              - generic [ref=e210]: Fully Insured
+            - generic [ref=e211]:
+              - img [ref=e212]
+              - generic [ref=e214]: 5-Star Rated
+            - generic [ref=e215]:
+              - img [ref=e216]
+              - generic [ref=e219]: 24H Response
+        - generic [ref=e220]:
+          - link "Get Free Quote" [ref=e221] [cursor=pointer]:
+            - /url: "#quote"
+            - text: Get Free Quote
+            - img [ref=e222]
+          - link "(248) 561-7790" [ref=e224] [cursor=pointer]:
+            - /url: tel:+12485617790
+            - img [ref=e225]
+            - text: (248) 561-7790
+    - contentinfo [ref=e227]:
+      - generic [ref=e228]:
+        - generic [ref=e229]:
+          - generic [ref=e230]:
+            - generic [ref=e231]:
+              - generic [ref=e232]: BTG
+              - generic [ref=e233]: BTG Gutters
+            - paragraph [ref=e234]: Family-owned gutter company proudly serving Garden City, MI and surrounding areas. Father & Son team with 22+ years of combined experience.
+            - generic [ref=e235]:
+              - link "Visit our Facebook page" [ref=e236] [cursor=pointer]:
+                - /url: https://www.facebook.com/BTGgutters/
+                - img [ref=e237]
+              - link "View on Google Maps" [ref=e239] [cursor=pointer]:
+                - /url: https://goo.gl/maps/rrgMHbdWMzNdDjvk9
+                - img [ref=e240]
+          - generic [ref=e243]:
+            - heading "Our Services" [level=3] [ref=e244]
+            - list [ref=e245]:
+              - listitem [ref=e246]:
+                - link "Gutter Installation" [ref=e247] [cursor=pointer]:
+                  - /url: /services/installation
+              - listitem [ref=e248]:
+                - link "Gutter Repair" [ref=e249] [cursor=pointer]:
+                  - /url: /services/repair
+              - listitem [ref=e250]:
+                - link "Leaf Guards" [ref=e251] [cursor=pointer]:
+                  - /url: /services/leaf-guards
+              - listitem [ref=e252]:
+                - link "Soffit & Fascia" [ref=e253] [cursor=pointer]:
+                  - /url: /services/soffit-fascia
+              - listitem [ref=e254]:
+                - link "Commercial Gutters" [ref=e255] [cursor=pointer]:
+                  - /url: /services/commercial
+          - generic [ref=e256]:
+            - heading "Quick Links" [level=3] [ref=e257]
+            - list [ref=e258]:
+              - listitem [ref=e259]:
+                - link "About Us" [ref=e260] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e261]:
+                - link "Our Services" [ref=e262] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e263]:
+                - link "Service Areas" [ref=e264] [cursor=pointer]:
+                  - /url: /service-areas
+              - listitem [ref=e265]:
+                - link "Gallery" [ref=e266] [cursor=pointer]:
+                  - /url: /gallery
+              - listitem [ref=e267]:
+                - link "Contact" [ref=e268] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e269]:
+                - link "Get Free Quote" [ref=e270] [cursor=pointer]:
+                  - /url: /#quote
+          - generic [ref=e271]:
+            - heading "Contact Us" [level=3] [ref=e272]
+            - list [ref=e273]:
+              - listitem [ref=e274]:
+                - link "(248) 561-7790" [ref=e275] [cursor=pointer]:
+                  - /url: tel:+12485617790
+                  - img [ref=e276]
+                  - generic [ref=e278]: (248) 561-7790
+              - listitem [ref=e279]:
+                - link "btggutters@gmail.com" [ref=e280] [cursor=pointer]:
+                  - /url: mailto:btggutters@gmail.com
+                  - img [ref=e281]
+                  - generic [ref=e284]: btggutters@gmail.com
+              - listitem [ref=e285]:
+                - link "Garden City, MI 48135" [ref=e286] [cursor=pointer]:
+                  - /url: https://goo.gl/maps/rrgMHbdWMzNdDjvk9
+                  - img [ref=e287]
+                  - generic [ref=e290]: Garden City, MI 48135
+              - listitem [ref=e291]:
+                - img [ref=e292]
+                - generic [ref=e295]:
+                  - paragraph [ref=e296]: "Mon-Fri: 8AM - 9PM"
+                  - paragraph [ref=e297]: "Sat-Sun: 9AM - 8PM"
+        - generic [ref=e298]:
+          - heading "Service Areas" [level=3] [ref=e299]
+          - generic [ref=e300]:
+            - generic [ref=e301]:
+              - link "Garden City, MI" [ref=e302] [cursor=pointer]:
+                - /url: /service-areas/garden-city
+              - generic [ref=e303]: "|"
+            - generic [ref=e304]:
+              - link "Livonia, MI" [ref=e305] [cursor=pointer]:
+                - /url: /service-areas/livonia
+              - generic [ref=e306]: "|"
+            - generic [ref=e307]:
+              - link "Westland, MI" [ref=e308] [cursor=pointer]:
+                - /url: /service-areas/westland
+              - generic [ref=e309]: "|"
+            - generic [ref=e310]:
+              - link "Dearborn, MI" [ref=e311] [cursor=pointer]:
+                - /url: /service-areas/dearborn
+              - generic [ref=e312]: "|"
+            - generic [ref=e313]:
+              - link "Detroit, MI" [ref=e314] [cursor=pointer]:
+                - /url: /service-areas/detroit
+              - generic [ref=e315]: "|"
+            - generic [ref=e316]:
+              - link "Canton, MI" [ref=e317] [cursor=pointer]:
+                - /url: /service-areas/canton
+              - generic [ref=e318]: "|"
+            - generic [ref=e319]:
+              - link "Plymouth, MI" [ref=e320] [cursor=pointer]:
+                - /url: /service-areas/plymouth
+              - generic [ref=e321]: "|"
+            - generic [ref=e322]:
+              - link "Redford, MI" [ref=e323] [cursor=pointer]:
+                - /url: /service-areas/redford
+              - generic [ref=e324]: "|"
+            - generic [ref=e325]:
+              - link "Farmington Hills, MI" [ref=e326] [cursor=pointer]:
+                - /url: /service-areas/farmington-hills
+              - generic [ref=e327]: "|"
+            - link "Southfield, MI" [ref=e329] [cursor=pointer]:
+              - /url: /service-areas/southfield
+            - link "+ More Areas" [ref=e330] [cursor=pointer]:
+              - /url: /service-areas
+      - generic [ref=e332]:
+        - paragraph [ref=e333]: © 2026 BTG Gutters. All Rights Reserved.
+        - generic [ref=e334]:
+          - generic [ref=e335]: 100% Insured
+          - generic [ref=e336]: "|"
+          - generic [ref=e337]: 4-Year Warranty
+          - generic [ref=e338]: "|"
+          - generic [ref=e339]: Free Estimates
+  - region "Notifications alt+T"

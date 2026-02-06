@@ -45,7 +45,10 @@ const serviceAreas = [
 
 export default function ServiceAreasSection() {
   return (
-    <section className="bg-gradient-to-b from-green-50/50 to-white py-16 md:py-24">
+    <section
+      className="scroll-mt-24 bg-gradient-to-b from-green-50/50 to-white py-16 md:py-24"
+      id="service-areas"
+    >
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="mb-12 text-center">

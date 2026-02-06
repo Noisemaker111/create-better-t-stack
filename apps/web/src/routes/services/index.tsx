@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Building2,
@@ -6,7 +6,6 @@ import {
   Droplets,
   Home,
   Leaf,
-  Sparkles,
   Wrench,
 } from "lucide-react";
 import { CTABanner } from "@/components/sections";
@@ -142,22 +141,6 @@ const services = [
     href: "/services/commercial",
     color: "from-purple-500 to-purple-600",
   },
-  {
-    icon: Sparkles,
-    title: "Gutter Cleaning",
-    description:
-      "Professional gutter cleaning to maintain optimal performance. We remove all debris, check for issues, and ensure proper water flow.",
-    features: [
-      "Complete debris removal",
-      "Downspout flushing",
-      "System inspection included",
-      "Before/after photos",
-      "Seasonal service plans",
-      "Affordable maintenance",
-    ],
-    href: "/services/cleaning",
-    color: "from-cyan-500 to-cyan-600",
-  },
 ];
 
 function ServicesPage() {
@@ -219,19 +202,20 @@ function ServicesPage() {
                   </div>
 
                   <div className="flex flex-wrap gap-4">
-                    <a
+                    <Link
                       className="inline-flex items-center gap-2 rounded-lg bg-green-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-800"
-                      href={service.href}
+                      to={service.href as any}
                     >
                       Learn More
                       <ArrowRight className="h-5 w-5" />
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       className="inline-flex items-center gap-2 rounded-lg border-2 border-green-700 px-6 py-3 font-semibold text-green-700 transition-colors hover:bg-green-50"
-                      href="#quote"
+                      hash="quote"
+                      to="/"
                     >
                       Get Free Quote
-                    </a>
+                    </Link>
                   </div>
                 </div>
 

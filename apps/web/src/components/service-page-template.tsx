@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { LucideIcon } from "lucide-react";
 import { Award, CheckCircle, Phone, Shield, Star } from "lucide-react";
 import { CTABanner } from "@/components/sections";
@@ -24,6 +25,31 @@ interface ServicePageProps {
     name: string;
     href: string;
   }[];
+  serviceSlug?:
+    | "installation"
+    | "repair"
+    | "leaf-guards"
+    | "soffit-fascia"
+    | "commercial";
+}
+
+const seoCities = [
+  "garden-city",
+  "livonia",
+  "westland",
+  "dearborn",
+  "canton",
+  "plymouth",
+  "redford",
+  "farmington-hills",
+  "southfield",
+] as const;
+
+function formatCityLabel(slug: string) {
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 // Helper function to create SEO head configuration
@@ -86,6 +112,7 @@ export default function ServicePageTemplate({
   benefits,
   faqs,
   relatedServices,
+  serviceSlug,
 }: ServicePageProps) {
   return (
     <>
@@ -120,15 +147,16 @@ export default function ServicePageTemplate({
 
               {/* CTAs */}
               <div className="flex flex-col gap-4 sm:flex-row">
-                <a
+                <Link
                   className="inline-flex items-center justify-center rounded-lg bg-[#1eeb00] px-8 py-4 font-bold text-black text-lg shadow-lg transition-all hover:bg-[#19c600]"
-                  href="/#quote"
+                  hash="quote"
                   onClick={() =>
                     trackCTAClick("service_page", "Get Free Estimate")
                   }
+                  to="/"
                 >
                   Get Free Estimate
-                </a>
+                </Link>
                 <a
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold text-lg text-white backdrop-blur-sm transition-all hover:bg-white/20"
                   href={PHONE_LINK}
@@ -380,18 +408,39 @@ export default function ServicePageTemplate({
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {relatedServices.map((service) => (
-                <a
+                <Link
                   className="rounded-lg bg-white px-6 py-3 font-medium text-green-700 shadow-sm transition-all hover:bg-green-50 hover:shadow-md"
-                  href={service.href}
                   key={service.name}
+                  to={service.href as any}
                 >
                   {service.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
         </section>
       )}
+
+      {serviceSlug ? (
+        <section className="bg-white py-12">
+          <div className="container mx-auto px-4">
+            <h3 className="mb-6 text-center font-bold text-gray-900 text-xl">
+              {title} by City
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
+              {seoCities.map((citySlug) => (
+                <a
+                  className="rounded-lg border border-green-100 bg-green-50 px-4 py-2 font-medium text-green-700 transition-colors hover:bg-green-100"
+                  href={`/service-areas/${citySlug}/${serviceSlug}`}
+                  key={citySlug}
+                >
+                  {title} in {formatCityLabel(citySlug)}
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* CTA */}
       <CTABanner />

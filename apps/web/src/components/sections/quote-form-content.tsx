@@ -193,7 +193,7 @@ export default function QuoteFormContent() {
                   }}
                   onChange={(e) => field.handleChange(e.target.value)}
                   onFocus={() => handleFieldFocus("name")}
-                  placeholder="John Smith"
+                  placeholder="Your Name Here"
                   required
                   type="text"
                   value={field.state.value}
@@ -370,11 +370,11 @@ export default function QuoteFormContent() {
             selector={(state) => [state.canSubmit, state.isSubmitting]}
           />
           <p className="text-center font-semibold text-[10px] text-gray-400 uppercase tracking-widest">
-            24-hour response guarantee
+            Free, no-obligation estimate
           </p>
           <p className="mt-2 text-center text-[10px] text-gray-400">
-            By submitting, you consent to receive calls and texts from BTG
-            Gutters.
+            By submitting, you agree BTG Gutters may contact you by call or text
+            about your project. Text messaging is welcome.
           </p>
         </form>
       </div>
@@ -401,7 +401,9 @@ export default function QuoteFormContent() {
             </svg>
           </div>
           <h3 className="font-bold text-gray-900 text-xl">Thank You!</h3>
-          <p className="mt-2 text-gray-600">We'll call you within 24 hours.</p>
+          <p className="mt-2 text-gray-600">
+            We will follow up soon about your project.
+          </p>
         </div>
       </div>
     </div>

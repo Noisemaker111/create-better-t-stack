@@ -8,6 +8,8 @@
  * @module
  */
 
+import type * as adminAccess from "../adminAccess.js";
+import type * as adminGuard from "../adminGuard.js";
 import type * as auth from "../auth.js";
 import type * as gallery from "../gallery.js";
 import type * as healthCheck from "../healthCheck.js";
@@ -22,6 +24,8 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  adminAccess: typeof adminAccess;
+  adminGuard: typeof adminGuard;
   auth: typeof auth;
   gallery: typeof gallery;
   healthCheck: typeof healthCheck;

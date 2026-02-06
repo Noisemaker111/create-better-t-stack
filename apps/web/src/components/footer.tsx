@@ -13,7 +13,8 @@ const PHONE_LINK = "tel:+12485617790";
 const EMAIL = "btggutters@gmail.com";
 const EMAIL_LINK = "mailto:btggutters@gmail.com";
 const ADDRESS = "Garden City, MI 48135";
-const GOOGLE_MAPS_LINK = "https://goo.gl/maps/rrgMHbdWMzNdDjvk9";
+const GOOGLE_MAPS_LINK =
+  "https://www.google.com/maps/place/BTG+Gutters/@42.3289327,-83.3460617,15z/data=!4m6!3m5!1s0x883b4d8d12aea83b:0xb2f3bb14fe4ddd36!8m2!3d42.3289327!4d-83.3460617!16s%2Fg%2F11syf4sksd";
 const FACEBOOK_LINK = "https://www.facebook.com/BTGgutters/";
 
 function slugify(text: string) {
@@ -104,12 +105,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.name}>
-                  <a
+                  <Link
                     className="text-green-200 transition-colors hover:text-white"
-                    href={service.href}
+                    to={service.href as any}
                   >
                     {service.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -121,12 +122,17 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     className="text-green-200 transition-colors hover:text-white"
-                    href={link.href}
+                    hash={
+                      link.href.includes("#")
+                        ? link.href.split("#")[1]
+                        : undefined
+                    }
+                    to={link.href.split("#")[0] as any}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -232,15 +238,16 @@ export default function Footer() {
             onClick={() => trackPhoneClick("mobile_sticky")}
           >
             <Phone className="h-5 w-5" />
-            Call Now
+            Call or Text
           </a>
-          <a
+          <Link
             className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#1eeb00] py-3 font-semibold text-black transition-colors hover:bg-[#19c600]"
-            href="/#quote"
+            hash="quote"
             onClick={() => trackCTAClick("mobile_sticky", "Free Quote")}
+            to="/"
           >
             Free Quote
-          </a>
+          </Link>
         </div>
       </div>
 

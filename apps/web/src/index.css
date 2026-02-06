@@ -157,7 +157,7 @@
     @apply font-sans bg-background text-foreground;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply font-sans;
   }
 }
 

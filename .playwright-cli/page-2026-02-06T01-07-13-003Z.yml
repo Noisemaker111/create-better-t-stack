@@ -1,0 +1,886 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - img [ref=e8]
+          - generic [ref=e10]: "5.0"
+          - generic [ref=e11]: "| 40+ Reviews"
+        - generic [ref=e12]: "|"
+        - generic [ref=e13]: Serving Garden City, MI & Surrounding Areas
+      - generic [ref=e14]:
+        - generic [ref=e15]: "Mon-Fri: 8AM-9PM | Sat-Sun: 9AM-8PM"
+        - link "(248) 561-7790" [ref=e16] [cursor=pointer]:
+          - /url: tel:+12485617790
+          - img [ref=e17]
+          - text: (248) 561-7790
+    - banner [ref=e19]:
+      - generic [ref=e21]:
+        - link "BTG Gutters Logo BTG Gutters Garden City, MI" [ref=e22] [cursor=pointer]:
+          - /url: /
+          - img "BTG Gutters Logo" [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]: BTG Gutters
+            - generic [ref=e26]: Garden City, MI
+        - navigation [ref=e27]:
+          - link "Home" [ref=e29] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e31] [cursor=pointer]:
+            - /url: /about
+          - button "Services" [ref=e34]:
+            - text: Services
+            - img [ref=e35]
+          - link "Gallery" [ref=e38] [cursor=pointer]:
+            - /url: /gallery
+          - link "Service Areas" [ref=e40] [cursor=pointer]:
+            - /url: /service-areas
+          - link "Contact" [ref=e42] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e43]:
+          - link "(248) 561-7790" [ref=e44] [cursor=pointer]:
+            - /url: tel:+12485617790
+            - img [ref=e45]
+            - text: (248) 561-7790
+          - link "Get Free Quote" [ref=e47] [cursor=pointer]:
+            - /url: /#quote
+    - main [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e51]:
+          - button "Edit image slot hero" [ref=e52]
+          - img "Gutter Installation" [ref=e53]
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - img [ref=e60]
+                - img [ref=e62]
+                - img [ref=e64]
+                - img [ref=e66]
+                - img [ref=e68]
+              - generic [ref=e70]: 5.0 Google Rating
+              - generic [ref=e72]: "Garden City's #1 Gutter Team"
+            - heading "Premium Seamless Gutter Installation" [level=1] [ref=e73]:
+              - text: Premium Seamless
+              - text: Gutter Installation
+            - paragraph [ref=e74]: Protect your home from water damage. Family-owned, father-son team with 22+ years of Michigan roofing & gutter expertise.
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - img [ref=e78]
+                - generic [ref=e80]: 100% Insured
+              - generic [ref=e81]:
+                - img [ref=e83]
+                - generic [ref=e86]: 4-Year Warranty
+              - generic [ref=e87]:
+                - img [ref=e89]
+                - generic [ref=e92]: Same-Week Quotes
+            - paragraph [ref=e94]: Join 40+ happy homeowners in Garden City
+          - generic [ref=e97]:
+            - heading "Get Your Free Quote" [level=3] [ref=e99]
+            - generic [ref=e100]:
+              - generic [ref=e102]:
+                - generic [ref=e103]:
+                  - generic [ref=e104]: Your Name *
+                  - textbox "Your Name * Your Name *" [ref=e105]:
+                    - /placeholder: John Smith
+                - generic [ref=e106]:
+                  - generic [ref=e107]: Phone Number *
+                  - textbox "Phone Number * Phone Number *" [ref=e108]:
+                    - /placeholder: (248) 555-1234
+                - generic [ref=e109]:
+                  - generic [ref=e110]: Address
+                  - textbox "Address Address" [ref=e112]:
+                    - /placeholder: Start typing your address...
+                - generic [ref=e113]:
+                  - generic [ref=e114]: Description (Optional)
+                  - textbox "Description (Optional) Description (Optional)" [ref=e115]:
+                    - /placeholder: Tell us about your project...
+                - button "Get My Free Quote" [ref=e116]:
+                  - text: Get My Free Quote
+                  - img [ref=e117]
+                - paragraph [ref=e119]: 24-hour response guarantee
+                - paragraph [ref=e120]: By submitting, you consent to receive calls and texts from BTG Gutters.
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - heading [level=3]: Thank You!
+                  - paragraph: We'll call you within 24 hours.
+            - generic [ref=e121]:
+              - generic [ref=e122]:
+                - generic [ref=e123]:
+                  - img [ref=e124]
+                  - img [ref=e126]
+                  - img [ref=e128]
+                  - img [ref=e130]
+                  - img [ref=e132]
+                - generic [ref=e134]: Google
+              - generic [ref=e136]:
+                - img [ref=e137]
+                - generic [ref=e140]: Insured
+              - generic [ref=e142]:
+                - img [ref=e143]
+                - generic [ref=e146]: Warranty
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - img [ref=e152]
+          - heading "100% Insured" [level=3] [ref=e154]
+          - paragraph [ref=e155]: Licensed & Bonded
+        - generic [ref=e156]:
+          - img [ref=e158]
+          - heading "4-Year Warranty" [level=3] [ref=e161]
+          - paragraph [ref=e162]: Parts & Labor
+        - generic [ref=e163]:
+          - img [ref=e165]
+          - heading "Family Owned" [level=3] [ref=e170]
+          - paragraph [ref=e171]: Father & Son Team
+        - generic [ref=e172]:
+          - img [ref=e174]
+          - heading "22+ Years Exp." [level=3] [ref=e177]
+          - paragraph [ref=e178]: Local Experts
+        - generic [ref=e179]:
+          - img [ref=e181]
+          - heading "Satisfaction" [level=3] [ref=e184]
+          - paragraph [ref=e185]: 100% Guaranteed
+        - generic [ref=e186]:
+          - img [ref=e188]
+          - heading "5-Star Rated" [level=3] [ref=e190]
+          - paragraph [ref=e191]: 40+ Real Reviews
+      - generic [ref=e193]:
+        - generic [ref=e194]:
+          - generic [ref=e195]: Expert Solutions
+          - heading "Comprehensive Protection For Your Michigan Home" [level=2] [ref=e196]:
+            - text: Comprehensive Protection
+            - text: For Your Michigan Home
+          - paragraph [ref=e197]: From seamless installations to advanced protection systems, BTG Gutters provides the precision and quality your property deserves.
+        - generic [ref=e198]:
+          - link "Edit image slot services-installation Gutter Installation Gutter Installation Expert installation of seamless aluminum gutters in 50+ colors. Concealed hangers every 12-18 inches for maximum Michigan durability. 5\" or 6\" seamless options 50+ color matching Premium aluminum stock View Details" [ref=e199] [cursor=pointer]:
+            - /url: /services/installation
+            - generic [ref=e200]:
+              - generic [ref=e201]:
+                - button "Edit image slot services-installation" [ref=e202]
+                - img "Gutter Installation" [ref=e203]
+              - img [ref=e206]
+            - generic [ref=e209]:
+              - heading "Gutter Installation" [level=3] [ref=e210]
+              - paragraph [ref=e211]: Expert installation of seamless aluminum gutters in 50+ colors. Concealed hangers every 12-18 inches for maximum Michigan durability.
+              - list [ref=e212]:
+                - listitem [ref=e213]:
+                  - img [ref=e215]
+                  - text: 5" or 6" seamless options
+                - listitem [ref=e217]:
+                  - img [ref=e219]
+                  - text: 50+ color matching
+                - listitem [ref=e221]:
+                  - img [ref=e223]
+                  - text: Premium aluminum stock
+              - generic [ref=e225]:
+                - text: View Details
+                - img [ref=e226]
+          - link "Edit image slot services-guards Leaf & Gutter Guards Leaf & Gutter Guards Keep debris out and water flowing with our premium gutter protection systems. Say goodbye to ladder climbing and clogged gutters forever. Stainless steel micro-mesh Fits any gutter system Lifetime clog-free warranty View Details" [ref=e229] [cursor=pointer]:
+            - /url: /services/leaf-guards
+            - generic [ref=e230]:
+              - generic [ref=e231]:
+                - button "Edit image slot services-guards" [ref=e232]
+                - img "Leaf & Gutter Guards" [ref=e233]
+              - img [ref=e236]
+            - generic [ref=e239]:
+              - heading "Leaf & Gutter Guards" [level=3] [ref=e240]
+              - paragraph [ref=e241]: Keep debris out and water flowing with our premium gutter protection systems. Say goodbye to ladder climbing and clogged gutters forever.
+              - list [ref=e242]:
+                - listitem [ref=e243]:
+                  - img [ref=e245]
+                  - text: Stainless steel micro-mesh
+                - listitem [ref=e247]:
+                  - img [ref=e249]
+                  - text: Fits any gutter system
+                - listitem [ref=e251]:
+                  - img [ref=e253]
+                  - text: Lifetime clog-free warranty
+              - generic [ref=e255]:
+                - text: View Details
+                - img [ref=e256]
+          - link "Edit image slot services-repair Gutter Repair & Tune-Up Gutter Repair & Tune-Up From minor leaks to major sagging, our skilled technicians diagnose and fix all gutter issues to restore proper home drainage. Leak sealing Pitch realignment Section replacement View Details" [ref=e259] [cursor=pointer]:
+            - /url: /services/repair
+            - generic [ref=e260]:
+              - generic [ref=e261]:
+                - button "Edit image slot services-repair" [ref=e262]
+                - img "Gutter Repair & Tune-Up" [ref=e263]
+              - img [ref=e266]
+            - generic [ref=e268]:
+              - heading "Gutter Repair & Tune-Up" [level=3] [ref=e269]
+              - paragraph [ref=e270]: From minor leaks to major sagging, our skilled technicians diagnose and fix all gutter issues to restore proper home drainage.
+              - list [ref=e271]:
+                - listitem [ref=e272]:
+                  - img [ref=e274]
+                  - text: Leak sealing
+                - listitem [ref=e276]:
+                  - img [ref=e278]
+                  - text: Pitch realignment
+                - listitem [ref=e280]:
+                  - img [ref=e282]
+                  - text: Section replacement
+              - generic [ref=e284]:
+                - text: View Details
+                - img [ref=e285]
+          - link "Edit image slot services-soffit Soffit & Fascia Repairs Soffit & Fascia Repairs Protect your home's structural integrity. We repair and replace water-damaged wood and metal fascia for a complete exterior finish. Wood rot repair Custom metal bending Vinyl soffit venting View Details" [ref=e288] [cursor=pointer]:
+            - /url: /services/soffit-fascia
+            - generic [ref=e289]:
+              - generic [ref=e290]:
+                - button "Edit image slot services-soffit" [ref=e291]
+                - img "Soffit & Fascia Repairs" [ref=e292]
+              - img [ref=e295]
+            - generic [ref=e298]:
+              - heading "Soffit & Fascia Repairs" [level=3] [ref=e299]
+              - paragraph [ref=e300]: Protect your home's structural integrity. We repair and replace water-damaged wood and metal fascia for a complete exterior finish.
+              - list [ref=e301]:
+                - listitem [ref=e302]:
+                  - img [ref=e304]
+                  - text: Wood rot repair
+                - listitem [ref=e306]:
+                  - img [ref=e308]
+                  - text: Custom metal bending
+                - listitem [ref=e310]:
+                  - img [ref=e312]
+                  - text: Vinyl soffit venting
+              - generic [ref=e314]:
+                - text: View Details
+                - img [ref=e315]
+          - link "Edit image slot services-commercial Commercial Gutters Tailored heavy-duty solutions for businesses and industrial properties. We handle large-scale projects with minimal business disruption. Box gutters Heavy-duty steel/aluminum Large downspouts View Details" [ref=e318] [cursor=pointer]:
+            - /url: /services/commercial
+            - generic [ref=e319]:
+              - generic:
+                - button "Edit image slot services-commercial"
+              - img [ref=e322]
+            - generic [ref=e326]:
+              - heading "Commercial Gutters" [level=3] [ref=e327]
+              - paragraph [ref=e328]: Tailored heavy-duty solutions for businesses and industrial properties. We handle large-scale projects with minimal business disruption.
+              - list [ref=e329]:
+                - listitem [ref=e330]:
+                  - img [ref=e332]
+                  - text: Box gutters
+                - listitem [ref=e334]:
+                  - img [ref=e336]
+                  - text: Heavy-duty steel/aluminum
+                - listitem [ref=e338]:
+                  - img [ref=e340]
+                  - text: Large downspouts
+              - generic [ref=e342]:
+                - text: View Details
+                - img [ref=e343]
+          - link "Edit image slot services-cleaning Professional Cleaning Professional Cleaning Keep your system at peak performance. Thorough debris removal, downspout flushing, and a full system health inspection. Debris bagging Downspout clearing Minor adjustments included View Details" [ref=e346] [cursor=pointer]:
+            - /url: /services/cleaning
+            - generic [ref=e347]:
+              - generic [ref=e348]:
+                - button "Edit image slot services-cleaning" [ref=e349]
+                - img "Professional Cleaning" [ref=e350]
+              - img [ref=e353]
+            - generic [ref=e355]:
+              - heading "Professional Cleaning" [level=3] [ref=e356]
+              - paragraph [ref=e357]: Keep your system at peak performance. Thorough debris removal, downspout flushing, and a full system health inspection.
+              - list [ref=e358]:
+                - listitem [ref=e359]:
+                  - img [ref=e361]
+                  - text: Debris bagging
+                - listitem [ref=e363]:
+                  - img [ref=e365]
+                  - text: Downspout clearing
+                - listitem [ref=e367]:
+                  - img [ref=e369]
+                  - text: Minor adjustments included
+              - generic [ref=e371]:
+                - text: View Details
+                - img [ref=e372]
+        - generic [ref=e378]:
+          - generic [ref=e379]:
+            - heading "Not sure what you need?" [level=3] [ref=e380]
+            - paragraph [ref=e381]: Our experts will assess your home and provide a custom solution tailored to your roof pitch and local drainage needs.
+          - generic [ref=e382]:
+            - link "Book Free Consultation" [ref=e383] [cursor=pointer]:
+              - /url: "#quote"
+            - link "Talk to Mike" [ref=e384] [cursor=pointer]:
+              - /url: tel:+12485617790
+      - generic [ref=e387]:
+        - generic [ref=e388]:
+          - generic [ref=e389]:
+            - img [ref=e390]
+            - generic [ref=e393]: Recent Projects
+          - heading "Real Results for Michigan Homeowners" [level=2] [ref=e394]
+          - paragraph [ref=e395]: We've completed over 100 gutter installations across Garden City, Livonia, Plymouth, and surrounding areas. Every project gets our full attention to detail.
+          - link "View Our Work" [ref=e397] [cursor=pointer]:
+            - /url: /gallery
+            - text: View Our Work
+            - img [ref=e398]
+          - generic [ref=e400]:
+            - generic [ref=e401]:
+              - img [ref=e402]
+              - text: 100+ Projects Completed
+            - generic [ref=e405]:
+              - img [ref=e406]
+              - text: 5-Star Rating
+        - generic [ref=e410]:
+          - generic [ref=e411] [cursor=pointer]:
+            - generic [ref=e412]:
+              - button "Edit image slot project-1" [ref=e413]
+              - img "Premium Seamless Gutter Installation" [ref=e414]
+            - generic [ref=e417]:
+              - heading "Premium Seamless Gutter Installation" [level=3] [ref=e418]
+              - paragraph [ref=e419]: Garden City, MI
+          - generic [ref=e420] [cursor=pointer]:
+            - generic [ref=e421]:
+              - button "Edit image slot project-2" [ref=e422]
+              - img "Complete Home Gutter System" [ref=e423]
+            - generic [ref=e426]:
+              - heading "Complete Home Gutter System" [level=3] [ref=e427]
+              - paragraph [ref=e428]: Livonia, MI
+          - generic [ref=e429] [cursor=pointer]:
+            - generic [ref=e430]:
+              - button "Edit image slot project-3" [ref=e431]
+              - img "Gutter Installation in Progress" [ref=e432]
+            - generic [ref=e435]:
+              - heading "Gutter Installation in Progress" [level=3] [ref=e436]
+              - paragraph [ref=e437]: Plymouth, MI
+          - generic [ref=e438] [cursor=pointer]:
+            - generic [ref=e439]:
+              - button "Edit image slot project-4" [ref=e440]
+              - img "Plastic Leaf Guard Installation" [ref=e441]
+            - generic [ref=e444]:
+              - heading "Plastic Leaf Guard Installation" [level=3] [ref=e445]
+              - paragraph [ref=e446]: Livonia, MI
+      - generic [ref=e448]:
+        - generic [ref=e449]:
+          - generic [ref=e450]: Why BTG Gutters
+          - heading "The BTG Difference" [level=2] [ref=e451]
+          - paragraph [ref=e452]: When you choose BTG Gutters, you're choosing a team that treats your home like our own.
+        - generic [ref=e453]:
+          - generic [ref=e454]:
+            - img [ref=e456]
+            - heading "Family-Owned Business" [level=3] [ref=e461]
+            - paragraph [ref=e462]: We're a father and son team who take personal pride in every project. When you hire us, you're not getting random contractors - you're getting family.
+          - generic [ref=e463]:
+            - img [ref=e465]
+            - heading "22+ Years of Experience" [level=3] [ref=e468]
+            - paragraph [ref=e469]: Our father's 22 years as a roofer means we understand how gutters work with your entire roofing system. We know a thing or two about what your home needs.
+          - generic [ref=e470]:
+            - img [ref=e472]
+            - heading "Honest & Transparent" [level=3] [ref=e474]
+            - paragraph [ref=e475]: We'll always be upfront about what you need - even if it means we don't get the job. We value long-term relationships over quick sales.
+          - generic [ref=e476]:
+            - img [ref=e478]
+            - heading "Affordable, Not Cheap" [level=3] [ref=e480]
+            - paragraph [ref=e481]: We offer competitive pricing without cutting corners. Quality materials, professional installation, and fair rates - that's our promise.
+          - generic [ref=e482]:
+            - img [ref=e484]
+            - heading "Quality Craftsmanship" [level=3] [ref=e486]
+            - paragraph [ref=e487]: Concealed hangers every 12-18 inches, high-quality aluminum, 50+ color options - we use the best materials and techniques in the industry.
+          - generic [ref=e488]:
+            - img [ref=e490]
+            - heading "Fast & Reliable" [level=3] [ref=e493]
+            - paragraph [ref=e494]: Free estimate within a week, installation the next week. We respect your time and keep our appointments. No long waits or missed calls.
+        - generic [ref=e495]:
+          - blockquote [ref=e496]: "\"We treat every home like it's our own\""
+          - paragraph [ref=e497]: — Mike & Son, BTG Gutters
+      - generic [ref=e503]:
+        - generic [ref=e504]:
+          - heading "Don't Wait For The Next Storm" [level=2] [ref=e505]:
+            - text: Don't Wait For
+            - text: The Next Storm
+          - paragraph [ref=e506]: Join 40+ protected Michigan homeowners. Get your free, no-pressure estimate today and secure your spot for next week.
+          - generic [ref=e507]:
+            - generic [ref=e508]:
+              - img [ref=e509]
+              - generic [ref=e511]: Fully Insured
+            - generic [ref=e512]:
+              - img [ref=e513]
+              - generic [ref=e515]: 5-Star Rated
+            - generic [ref=e516]:
+              - img [ref=e517]
+              - generic [ref=e520]: 24H Response
+        - generic [ref=e521]:
+          - link "Get Free Quote" [ref=e522] [cursor=pointer]:
+            - /url: "#quote"
+            - text: Get Free Quote
+            - img [ref=e523]
+          - link "(248) 561-7790" [ref=e525] [cursor=pointer]:
+            - /url: tel:+12485617790
+            - img [ref=e526]
+            - text: (248) 561-7790
+      - generic [ref=e531]:
+        - generic [ref=e532]:
+          - generic [ref=e533]:
+            - img [ref=e534]
+            - generic [ref=e537]: Trusted Excellence
+          - heading "Real Stories from Local Homeowners" [level=2] [ref=e538]:
+            - text: Real Stories from
+            - text: Local Homeowners
+          - generic [ref=e539]:
+            - generic [ref=e540]:
+              - generic [ref=e541]:
+                - img [ref=e542]
+                - img [ref=e544]
+                - img [ref=e546]
+                - img [ref=e548]
+                - img [ref=e550]
+              - paragraph [ref=e552]: 5.0 Google Rating
+            - generic [ref=e554]:
+              - paragraph [ref=e555]: Based on
+              - paragraph [ref=e556]: 40+ Verified Reviews
+        - generic [ref=e557]:
+          - figure "S Sarah M. Garden City, MI" [ref=e558]:
+            - generic [ref=e559]:
+              - img "Project for Sarah M." [ref=e560]
+              - generic [ref=e563]: Gutter Replacement
+            - img [ref=e565]
+            - generic [ref=e567]:
+              - img [ref=e568]
+              - img [ref=e570]
+              - img [ref=e572]
+              - img [ref=e574]
+              - img [ref=e576]
+              - generic [ref=e578]:
+                - img [ref=e579]
+                - generic [ref=e584]: Verified
+            - blockquote [ref=e585]:
+              - paragraph [ref=e586]: "\"Mr. Mike and his son did an amazing job replacing our gutters. They were punctual, professional, and the cleanup was spotless. Highly recommend!\""
+            - generic [ref=e587]:
+              - generic [ref=e588]: S
+              - generic [ref=e589]:
+                - generic [ref=e590]: Sarah M.
+                - generic [ref=e591]: Garden City, MI
+          - figure "R Robert T. Livonia, MI" [ref=e592]:
+            - generic [ref=e593]:
+              - img "Project for Robert T." [ref=e594]
+              - generic [ref=e597]: Gutter Installation
+            - img [ref=e599]
+            - generic [ref=e601]:
+              - img [ref=e602]
+              - img [ref=e604]
+              - img [ref=e606]
+              - img [ref=e608]
+              - img [ref=e610]
+              - generic [ref=e612]:
+                - img [ref=e613]
+                - generic [ref=e618]: Verified
+            - blockquote [ref=e619]:
+              - paragraph [ref=e620]: "\"Best gutter company I've ever worked with. They were honest about what we actually needed and saved us money. The father-son team is fantastic!\""
+            - generic [ref=e621]:
+              - generic [ref=e622]: R
+              - generic [ref=e623]:
+                - generic [ref=e624]: Robert T.
+                - generic [ref=e625]: Livonia, MI
+          - figure "J Jennifer K. Westland, MI" [ref=e626]:
+            - generic [ref=e627]:
+              - img "Project for Jennifer K." [ref=e628]
+              - generic [ref=e631]: Leaf Guards
+            - img [ref=e633]
+            - generic [ref=e635]:
+              - img [ref=e636]
+              - img [ref=e638]
+              - img [ref=e640]
+              - img [ref=e642]
+              - img [ref=e644]
+              - generic [ref=e646]:
+                - img [ref=e647]
+                - generic [ref=e652]: Verified
+            - blockquote [ref=e653]:
+              - paragraph [ref=e654]: "\"Quick service, fair pricing, and excellent work. They came out the same day I called for an estimate and installed the next week. Very impressed!\""
+            - generic [ref=e655]:
+              - generic [ref=e656]: J
+              - generic [ref=e657]:
+                - generic [ref=e658]: Jennifer K.
+                - generic [ref=e659]: Westland, MI
+          - figure "M Michael D. Dearborn, MI" [ref=e660]:
+            - generic [ref=e661]:
+              - img "Project for Michael D." [ref=e662]
+              - generic [ref=e665]: Fascia Repair
+            - img [ref=e667]
+            - generic [ref=e669]:
+              - img [ref=e670]
+              - img [ref=e672]
+              - img [ref=e674]
+              - img [ref=e676]
+              - img [ref=e678]
+              - generic [ref=e680]:
+                - img [ref=e681]
+                - generic [ref=e686]: Verified
+            - blockquote [ref=e687]:
+              - paragraph [ref=e688]: "\"They repaired water-damaged wood on my fascia that other companies wanted to charge a fortune for. Honest, affordable, and quality work.\""
+            - generic [ref=e689]:
+              - generic [ref=e690]: M
+              - generic [ref=e691]:
+                - generic [ref=e692]: Michael D.
+                - generic [ref=e693]: Dearborn, MI
+          - figure "L Linda H. Canton, MI" [ref=e694]:
+            - generic [ref=e695]:
+              - img "Project for Linda H." [ref=e696]
+              - generic [ref=e699]: Seamless Gutters
+            - img [ref=e701]
+            - generic [ref=e703]:
+              - img [ref=e704]
+              - img [ref=e706]
+              - img [ref=e708]
+              - img [ref=e710]
+              - img [ref=e712]
+              - generic [ref=e714]:
+                - img [ref=e715]
+                - generic [ref=e720]: Verified
+            - blockquote [ref=e721]:
+              - paragraph [ref=e722]: "\"Professional from start to finish. The gutters look beautiful and the price was very reasonable. They even cleaned up better than before they arrived!\""
+            - generic [ref=e723]:
+              - generic [ref=e724]: L
+              - generic [ref=e725]:
+                - generic [ref=e726]: Linda H.
+                - generic [ref=e727]: Canton, MI
+          - figure "D David W. Plymouth, MI" [ref=e728]:
+            - generic [ref=e729]:
+              - img "Project for David W." [ref=e730]
+              - generic [ref=e733]: Gutter Replacement
+            - img [ref=e735]
+            - generic [ref=e737]:
+              - img [ref=e738]
+              - img [ref=e740]
+              - img [ref=e742]
+              - img [ref=e744]
+              - img [ref=e746]
+              - generic [ref=e748]:
+                - img [ref=e749]
+                - generic [ref=e754]: Verified
+            - blockquote [ref=e755]:
+              - paragraph [ref=e756]: "\"Called on a Friday, got an estimate Saturday, installation Monday. That's the kind of service you rarely find anymore. Great work, great people!\""
+            - generic [ref=e757]:
+              - generic [ref=e758]: D
+              - generic [ref=e759]:
+                - generic [ref=e760]: David W.
+                - generic [ref=e761]: Plymouth, MI
+        - generic [ref=e762]:
+          - link "See All 40+ Verified Reviews on Google" [ref=e763] [cursor=pointer]:
+            - /url: https://goo.gl/maps/rrgMHbdWMzNdDjvk9
+            - img [ref=e765]
+            - generic [ref=e770]: See All 40+ Verified Reviews on Google
+          - generic [ref=e771]:
+            - generic [ref=e772]: Thumbtack
+            - generic [ref=e773]: Angi
+            - generic [ref=e774]: Houzz
+      - generic [ref=e776]:
+        - generic [ref=e777]:
+          - generic [ref=e778]: Service Areas
+          - heading "Proudly Serving Southeast Michigan" [level=2] [ref=e779]
+          - paragraph [ref=e780]: Based in Garden City, we provide professional gutter services throughout the greater Detroit metro area.
+        - generic [ref=e781]:
+          - generic [ref=e782]:
+            - iframe [ref=e784]
+            - generic [ref=e786]:
+              - img [ref=e788]
+              - generic [ref=e791]:
+                - paragraph [ref=e792]: BTG Gutters
+                - paragraph [ref=e793]: Garden City, MI 48135
+          - generic [ref=e794]:
+            - heading "Cities We Serve" [level=3] [ref=e795]
+            - generic [ref=e796]:
+              - link "Garden City" [ref=e797] [cursor=pointer]:
+                - /url: /service-areas/garden-city
+                - img [ref=e798]
+                - generic [ref=e801]: Garden City
+              - link "Livonia" [ref=e802] [cursor=pointer]:
+                - /url: /service-areas/livonia
+                - img [ref=e803]
+                - generic [ref=e806]: Livonia
+              - link "Westland" [ref=e807] [cursor=pointer]:
+                - /url: /service-areas/westland
+                - img [ref=e808]
+                - generic [ref=e811]: Westland
+              - link "Dearborn" [ref=e812] [cursor=pointer]:
+                - /url: /service-areas/dearborn
+                - img [ref=e813]
+                - generic [ref=e816]: Dearborn
+              - link "Dearborn Heights" [ref=e817] [cursor=pointer]:
+                - /url: /service-areas/dearborn-heights
+                - img [ref=e818]
+                - generic [ref=e821]: Dearborn Heights
+              - link "Detroit" [ref=e822] [cursor=pointer]:
+                - /url: /service-areas/detroit
+                - img [ref=e823]
+                - generic [ref=e826]: Detroit
+              - link "Canton" [ref=e827] [cursor=pointer]:
+                - /url: /service-areas/canton
+                - img [ref=e828]
+                - generic [ref=e831]: Canton
+              - link "Plymouth" [ref=e832] [cursor=pointer]:
+                - /url: /service-areas/plymouth
+                - img [ref=e833]
+                - generic [ref=e836]: Plymouth
+              - link "Redford" [ref=e837] [cursor=pointer]:
+                - /url: /service-areas/redford
+                - img [ref=e838]
+                - generic [ref=e841]: Redford
+              - link "Farmington" [ref=e842] [cursor=pointer]:
+                - /url: /service-areas/farmington
+                - img [ref=e843]
+                - generic [ref=e846]: Farmington
+              - link "Farmington Hills" [ref=e847] [cursor=pointer]:
+                - /url: /service-areas/farmington-hills
+                - img [ref=e848]
+                - generic [ref=e851]: Farmington Hills
+              - link "Southfield" [ref=e852] [cursor=pointer]:
+                - /url: /service-areas/southfield
+                - img [ref=e853]
+                - generic [ref=e856]: Southfield
+              - link "Novi" [ref=e857] [cursor=pointer]:
+                - /url: /service-areas/novi
+                - img [ref=e858]
+                - generic [ref=e861]: Novi
+              - link "Northville" [ref=e862] [cursor=pointer]:
+                - /url: /service-areas/northville
+                - img [ref=e863]
+                - generic [ref=e866]: Northville
+              - link "Wayne" [ref=e867] [cursor=pointer]:
+                - /url: /service-areas/wayne
+                - img [ref=e868]
+                - generic [ref=e871]: Wayne
+              - link "Inkster" [ref=e872] [cursor=pointer]:
+                - /url: /service-areas/inkster
+                - img [ref=e873]
+                - generic [ref=e876]: Inkster
+              - link "Taylor" [ref=e877] [cursor=pointer]:
+                - /url: /service-areas/taylor
+                - img [ref=e878]
+                - generic [ref=e881]: Taylor
+              - link "Allen Park" [ref=e882] [cursor=pointer]:
+                - /url: /service-areas/allen-park
+                - img [ref=e883]
+                - generic [ref=e886]: Allen Park
+              - link "Lincoln Park" [ref=e887] [cursor=pointer]:
+                - /url: /service-areas/lincoln-park
+                - img [ref=e888]
+                - generic [ref=e891]: Lincoln Park
+              - link "Romulus" [ref=e892] [cursor=pointer]:
+                - /url: /service-areas/romulus
+                - img [ref=e893]
+                - generic [ref=e896]: Romulus
+              - link "Belleville" [ref=e897] [cursor=pointer]:
+                - /url: /service-areas/belleville
+                - img [ref=e898]
+                - generic [ref=e901]: Belleville
+              - link "Riverview" [ref=e902] [cursor=pointer]:
+                - /url: /service-areas/riverview
+                - img [ref=e903]
+                - generic [ref=e906]: Riverview
+              - link "Southgate" [ref=e907] [cursor=pointer]:
+                - /url: /service-areas/southgate
+                - img [ref=e908]
+                - generic [ref=e911]: Southgate
+              - link "Wyandotte" [ref=e912] [cursor=pointer]:
+                - /url: /service-areas/wyandotte
+                - img [ref=e913]
+                - generic [ref=e916]: Wyandotte
+              - link "Ecorse" [ref=e917] [cursor=pointer]:
+                - /url: /service-areas/ecorse
+                - img [ref=e918]
+                - generic [ref=e921]: Ecorse
+              - link "Melvindale" [ref=e922] [cursor=pointer]:
+                - /url: /service-areas/melvindale
+                - img [ref=e923]
+                - generic [ref=e926]: Melvindale
+              - link "Oak Park" [ref=e927] [cursor=pointer]:
+                - /url: /service-areas/oak-park
+                - img [ref=e928]
+                - generic [ref=e931]: Oak Park
+              - link "Sterling Heights" [ref=e932] [cursor=pointer]:
+                - /url: /service-areas/sterling-heights
+                - img [ref=e933]
+                - generic [ref=e936]: Sterling Heights
+              - link "Clinton Township" [ref=e937] [cursor=pointer]:
+                - /url: /service-areas/clinton-township
+                - img [ref=e938]
+                - generic [ref=e941]: Clinton Township
+              - link "Wixom" [ref=e942] [cursor=pointer]:
+                - /url: /service-areas/wixom
+                - img [ref=e943]
+                - generic [ref=e946]: Wixom
+            - generic [ref=e947]:
+              - heading "Don't see your city?" [level=4] [ref=e948]
+              - paragraph [ref=e949]: We serve all of Southeast Michigan! Give us a call to confirm we service your area.
+              - link "(248) 561-7790" [ref=e950] [cursor=pointer]:
+                - /url: tel:+12485617790
+                - img [ref=e951]
+                - text: (248) 561-7790
+      - generic [ref=e955]:
+        - generic [ref=e956]:
+          - generic [ref=e957]: Free Estimate
+          - heading "Ready to Protect Your Home?" [level=2] [ref=e958]
+          - paragraph [ref=e959]: Just your name and phone number. We'll call you back within 24 hours to schedule your free, no-pressure quote.
+          - generic [ref=e960]:
+            - generic [ref=e961]:
+              - img [ref=e962]
+              - generic [ref=e965]: Free, no-obligation estimate
+            - generic [ref=e966]:
+              - img [ref=e967]
+              - generic [ref=e970]: Response within 24 hours
+            - generic [ref=e971]:
+              - img [ref=e972]
+              - generic [ref=e974]: 100% insured
+          - generic [ref=e975]:
+            - paragraph [ref=e976]: "Prefer to talk? Call now:"
+            - link "(248) 561-7790" [ref=e977] [cursor=pointer]:
+              - /url: tel:+12485617790
+              - img [ref=e978]
+              - text: (248) 561-7790
+            - paragraph [ref=e980]: "Mon-Fri: 8AM-9PM | Sat-Sun: 9AM-8PM"
+        - generic [ref=e981]:
+          - generic [ref=e982]: Limited Availability
+          - generic [ref=e983]:
+            - heading "Get My Free Quote" [level=3] [ref=e984]
+            - paragraph [ref=e985]: Fill out the form below to get started.
+          - generic [ref=e986]:
+            - generic [ref=e988]:
+              - generic [ref=e989]:
+                - generic [ref=e990]: Your Name *
+                - textbox "John Smith" [ref=e991]
+              - generic [ref=e992]:
+                - generic [ref=e993]: Phone Number *
+                - textbox "(248) 555-1234" [ref=e994]
+              - generic [ref=e995]:
+                - generic [ref=e996]: Address
+                - textbox "Start typing your address..." [ref=e998]
+              - generic [ref=e999]:
+                - generic [ref=e1000]: Description (Optional)
+                - textbox "Tell us about your project..." [ref=e1001]
+              - button "Get My Free Quote" [ref=e1002]:
+                - text: Get My Free Quote
+                - img [ref=e1003]
+              - paragraph [ref=e1005]: 24-hour response guarantee
+              - paragraph [ref=e1006]: By submitting, you consent to receive calls and texts from BTG Gutters.
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - heading [level=3]: Thank You!
+                - paragraph: We'll call you within 24 hours.
+    - contentinfo [ref=e1007]:
+      - generic [ref=e1008]:
+        - generic [ref=e1009]:
+          - generic [ref=e1010]:
+            - generic [ref=e1011]:
+              - generic [ref=e1012]: BTG
+              - generic [ref=e1013]: BTG Gutters
+            - paragraph [ref=e1014]: Family-owned gutter company proudly serving Garden City, MI and surrounding areas. Father & Son team with 22+ years of combined experience.
+            - generic [ref=e1015]:
+              - link "Visit our Facebook page" [ref=e1016] [cursor=pointer]:
+                - /url: https://www.facebook.com/BTGgutters/
+                - img [ref=e1017]
+              - link "View on Google Maps" [ref=e1019] [cursor=pointer]:
+                - /url: https://goo.gl/maps/rrgMHbdWMzNdDjvk9
+                - img [ref=e1020]
+          - generic [ref=e1023]:
+            - heading "Our Services" [level=3] [ref=e1024]
+            - list [ref=e1025]:
+              - listitem [ref=e1026]:
+                - link "Gutter Installation" [ref=e1027] [cursor=pointer]:
+                  - /url: /services/installation
+              - listitem [ref=e1028]:
+                - link "Gutter Repair" [ref=e1029] [cursor=pointer]:
+                  - /url: /services/repair
+              - listitem [ref=e1030]:
+                - link "Leaf Guards" [ref=e1031] [cursor=pointer]:
+                  - /url: /services/leaf-guards
+              - listitem [ref=e1032]:
+                - link "Soffit & Fascia" [ref=e1033] [cursor=pointer]:
+                  - /url: /services/soffit-fascia
+              - listitem [ref=e1034]:
+                - link "Commercial Gutters" [ref=e1035] [cursor=pointer]:
+                  - /url: /services/commercial
+          - generic [ref=e1036]:
+            - heading "Quick Links" [level=3] [ref=e1037]
+            - list [ref=e1038]:
+              - listitem [ref=e1039]:
+                - link "About Us" [ref=e1040] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e1041]:
+                - link "Our Services" [ref=e1042] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e1043]:
+                - link "Service Areas" [ref=e1044] [cursor=pointer]:
+                  - /url: /service-areas
+              - listitem [ref=e1045]:
+                - link "Gallery" [ref=e1046] [cursor=pointer]:
+                  - /url: /gallery
+              - listitem [ref=e1047]:
+                - link "Contact" [ref=e1048] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e1049]:
+                - link "Get Free Quote" [ref=e1050] [cursor=pointer]:
+                  - /url: /#quote
+          - generic [ref=e1051]:
+            - heading "Contact Us" [level=3] [ref=e1052]
+            - list [ref=e1053]:
+              - listitem [ref=e1054]:
+                - link "(248) 561-7790" [ref=e1055] [cursor=pointer]:
+                  - /url: tel:+12485617790
+                  - img [ref=e1056]
+                  - generic [ref=e1058]: (248) 561-7790
+              - listitem [ref=e1059]:
+                - link "btggutters@gmail.com" [ref=e1060] [cursor=pointer]:
+                  - /url: mailto:btggutters@gmail.com
+                  - img [ref=e1061]
+                  - generic [ref=e1064]: btggutters@gmail.com
+              - listitem [ref=e1065]:
+                - link "Garden City, MI 48135" [ref=e1066] [cursor=pointer]:
+                  - /url: https://goo.gl/maps/rrgMHbdWMzNdDjvk9
+                  - img [ref=e1067]
+                  - generic [ref=e1070]: Garden City, MI 48135
+              - listitem [ref=e1071]:
+                - img [ref=e1072]
+                - generic [ref=e1075]:
+                  - paragraph [ref=e1076]: "Mon-Fri: 8AM - 9PM"
+                  - paragraph [ref=e1077]: "Sat-Sun: 9AM - 8PM"
+        - generic [ref=e1078]:
+          - heading "Service Areas" [level=3] [ref=e1079]
+          - generic [ref=e1080]:
+            - generic [ref=e1081]:
+              - link "Garden City, MI" [ref=e1082] [cursor=pointer]:
+                - /url: /service-areas/garden-city
+              - generic [ref=e1083]: "|"
+            - generic [ref=e1084]:
+              - link "Livonia, MI" [ref=e1085] [cursor=pointer]:
+                - /url: /service-areas/livonia
+              - generic [ref=e1086]: "|"
+            - generic [ref=e1087]:
+              - link "Westland, MI" [ref=e1088] [cursor=pointer]:
+                - /url: /service-areas/westland
+              - generic [ref=e1089]: "|"
+            - generic [ref=e1090]:
+              - link "Dearborn, MI" [ref=e1091] [cursor=pointer]:
+                - /url: /service-areas/dearborn
+              - generic [ref=e1092]: "|"
+            - generic [ref=e1093]:
+              - link "Detroit, MI" [ref=e1094] [cursor=pointer]:
+                - /url: /service-areas/detroit
+              - generic [ref=e1095]: "|"
+            - generic [ref=e1096]:
+              - link "Canton, MI" [ref=e1097] [cursor=pointer]:
+                - /url: /service-areas/canton
+              - generic [ref=e1098]: "|"
+            - generic [ref=e1099]:
+              - link "Plymouth, MI" [ref=e1100] [cursor=pointer]:
+                - /url: /service-areas/plymouth
+              - generic [ref=e1101]: "|"
+            - generic [ref=e1102]:
+              - link "Redford, MI" [ref=e1103] [cursor=pointer]:
+                - /url: /service-areas/redford
+              - generic [ref=e1104]: "|"
+            - generic [ref=e1105]:
+              - link "Farmington Hills, MI" [ref=e1106] [cursor=pointer]:
+                - /url: /service-areas/farmington-hills
+              - generic [ref=e1107]: "|"
+            - link "Southfield, MI" [ref=e1109] [cursor=pointer]:
+              - /url: /service-areas/southfield
+            - link "+ More Areas" [ref=e1110] [cursor=pointer]:
+              - /url: /service-areas
+      - generic [ref=e1112]:
+        - paragraph [ref=e1113]: © 2026 BTG Gutters. All Rights Reserved.
+        - generic [ref=e1114]:
+          - generic [ref=e1115]: 100% Insured
+          - generic [ref=e1116]: "|"
+          - generic [ref=e1117]: 4-Year Warranty
+          - generic [ref=e1118]: "|"
+          - generic [ref=e1119]: Free Estimates
+  - region "Notifications alt+T"

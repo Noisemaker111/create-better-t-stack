@@ -94,6 +94,7 @@ function InstallationPage() {
         { name: "Gutter Repair", href: "/services/repair" },
         { name: "Soffit & Fascia", href: "/services/soffit-fascia" },
       ]}
+      serviceSlug="installation"
       subtitle="Professional seamless gutter installation that protects your home for years to come."
       title="Gutter Installation & Replacement"
     />

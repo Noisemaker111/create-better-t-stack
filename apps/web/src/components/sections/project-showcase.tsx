@@ -1,35 +1,21 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { EditableSectionImage } from "@/components/admin/editable-section-image";
+import { getFeaturedProjects } from "@/lib/images";
 
-const featuredProjects = [
-  {
-    id: 1,
-    src: "/images/gallery/001.jpg",
-    title: "Premium Seamless Gutter Installation",
-    location: "Garden City, MI",
-  },
-  {
-    id: 2,
-    src: "/images/gallery/002.jpg",
-    title: "Complete Home Gutter System",
-    location: "Livonia, MI",
-  },
-  {
-    id: 3,
-    src: "/images/gallery/003.jpg",
-    title: "Gutter Installation in Progress",
-    location: "Plymouth, MI",
-  },
-  {
-    id: 4,
-    src: "/images/gallery/048.jpg",
-    title: "Plastic Leaf Guard Installation",
-    location: "Livonia, MI",
-  },
-];
+const featuredProjects = getFeaturedProjects().map((img, index) => ({
+  id: index + 1,
+  src: img.src,
+  title: img.title,
+  location: img.location,
+}));
 
 export default function ProjectShowcase() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+    <section
+      className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-gray-50 to-white py-16 md:py-24"
+      id="gallery"
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-12 lg:flex-row">
           {/* Left side - Text content */}
@@ -50,13 +36,13 @@ export default function ProjectShowcase() {
               full attention to detail.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <a
+              <Link
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-8 py-4 font-bold text-lg text-white transition-all hover:bg-green-700 active:scale-95"
-                href="/gallery"
+                to="/gallery"
               >
                 View Our Work
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
             <div className="mt-8 flex items-center gap-6 font-medium text-gray-500 text-sm">
               <span className="flex items-center gap-2">
@@ -79,20 +65,25 @@ export default function ProjectShowcase() {
                     index === 0 ? "row-span-2" : ""
                   }`}
                   key={project.id}
+                  style={
+                    index === 0
+                      ? { minHeight: "28rem" }
+                      : { aspectRatio: "4 / 3", minHeight: "12rem" }
+                  }
                 >
-                  <img
-                    alt={project.title}
-                    className="relative z-10 aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  <EditableSectionImage
+                    className="absolute inset-0 z-10 h-full w-full object-cover"
+                    fallbackAlt={project.title}
+                    fallbackSrc={project.src}
+                    hideOnError
                     loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.style.display = "none";
-                    }}
-                    src={project.src}
+                    sectionId={`project-${project.id}`}
+                    usagePath="/"
                   />
                   {/* Fallback gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-green-200 to-green-300" />
                   {/* Overlay */}
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 transition-opacity group-hover:opacity-80" />
+                  <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 transition-opacity group-hover:opacity-80" />
                   {/* Content */}
                   <div className="absolute right-0 bottom-0 left-0 z-20 p-4 text-white">
                     <h3 className="mb-1 font-bold text-sm leading-tight">

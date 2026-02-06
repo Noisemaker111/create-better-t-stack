@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Award,
   CheckCircle,
@@ -9,7 +9,9 @@ import {
   Star,
   Users,
 } from "lucide-react";
+import { EditableSectionImage } from "@/components/admin/editable-section-image";
 import { CTABanner } from "@/components/sections";
+import { getGalleryImageSrc } from "@/lib/images";
 
 const PHONE_NUMBER = "(248) 561-7790";
 const PHONE_LINK = "tel:+12485617790";
@@ -98,7 +100,7 @@ const stats = [
   { value: "100%", label: "Satisfaction Rate" },
 ];
 
-function AboutPage() {
+export function AboutPageContent() {
   return (
     <>
       {/* Hero Section */}
@@ -126,10 +128,12 @@ function AboutPage() {
             {/* Image/Visual */}
             <div className="relative">
               <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-200">
-                <img
-                  alt="BTG Gutters - Professional Gutter Installation"
-                  className="h-full w-full object-cover"
-                  src="/images/gallery/002.jpg"
+                <EditableSectionImage
+                  className="absolute inset-0 h-full w-full object-cover"
+                  fallbackAlt="BTG Gutters - Professional Gutter Installation"
+                  fallbackSrc={getGalleryImageSrc("002")}
+                  sectionId="about-story"
+                  usagePath="/about"
                 />
               </div>
 
@@ -185,12 +189,13 @@ function AboutPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
+                <Link
                   className="inline-flex items-center justify-center rounded-lg bg-green-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-green-800"
-                  href="#quote"
+                  hash="quote"
+                  to="/"
                 >
                   Get Your Free Quote
-                </a>
+                </Link>
                 <a
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-green-700 px-6 py-3 font-semibold text-green-700 transition-colors hover:bg-green-50"
                   href={PHONE_LINK}
@@ -321,4 +326,8 @@ function AboutPage() {
       <CTABanner />
     </>
   );
+}
+
+function AboutPage() {
+  return <AboutPageContent />;
 }
